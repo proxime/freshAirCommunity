@@ -7,6 +7,7 @@ const Slider = () => {
     const [slideHeight, setSlideHeight] = useState(0);
     const [transition, setTransition] = useState('top 1.2s ease');
     const slider = useRef(null);
+    const [touchY, setTouchY] = useState(null);
 
     const onWheel = e => {
         if (slider) {
@@ -14,16 +15,45 @@ const Slider = () => {
                 if (slide < 3 && readySlide) {
                     setSile(slide + 1);
                     setReady(!readySlide);
-                    setTimeout(() => setReady(readySlide), 1500);
+                    setTimeout(() => setReady(readySlide), 1200);
                     setTransition('top 1.2s ease');
                 }
             } else {
                 if (slide > 0 && readySlide) {
                     setSile(slide - 1);
                     setReady(!readySlide);
-                    setTimeout(() => setReady(readySlide), 1500);
+                    setTimeout(() => setReady(readySlide), 1200);
                     setTransition('top 1.2s ease');
                 }
+            }
+        }
+    }
+
+    const onTouchStart = e => {
+        e.persist();
+        setTouchY(e.touches[0].clientY);
+    }
+
+    const onTouchMove = e => {
+        e.persist();
+        if (!touchY) return;
+
+        const currentY = e.touches[0].clientY;
+        const diffY = touchY - currentY;
+
+        if (diffY > 50) {
+            if (slide < 3 && readySlide) {
+                setSile(slide + 1);
+                setReady(!readySlide);
+                setTimeout(() => setReady(readySlide), 1200);
+                setTransition('top 1.2s ease');
+            }
+        } else if (diffY < -50) {
+            if (slide > 0 && readySlide) {
+                setSile(slide - 1);
+                setReady(!readySlide);
+                setTimeout(() => setReady(readySlide), 1200);
+                setTransition('top 1.2s ease');
             }
         }
     }
@@ -40,7 +70,7 @@ const Slider = () => {
     }, [])
 
     return (
-        <div className="slider-container" onWheel={e => onWheel(e)}>
+        <div className="slider-container" onWheel={e => onWheel(e)} onTouchStart={e => onTouchStart(e)} onTouchMove={e => onTouchMove(e)}>
             <div className="slider" ref={slider} style={{
                 top: -slide * slideHeight,
                 transition,
