@@ -13,7 +13,7 @@ const Navbar = () => {
                 <ul className="navbar-list">
                     <li><Link to="/">Strona Główna</Link></li>
                     <li><Link to="/pollution">Zanieczyszczenia</Link></li>
-                    <li><Link href="#!">Forum</Link></li>
+                    <li><Link to="#!">Forum</Link></li>
                 </ul>
             </div>
         </nav>

@@ -64,10 +64,16 @@ const Slider = () => {
     }
 
     useEffect(() => {
-        window.addEventListener('resize', () => {
+        const windowResize = () => {
             setSlideHeight(slider.current.clientHeight / 4);
             setTransition('top 0s ease');
-        });
+        }
+
+        window.addEventListener('resize', windowResize);
+
+        return function cleanInterwal() {
+            window.removeEventListener('resize', windowResize);
+        }
     }, [])
 
     return (
