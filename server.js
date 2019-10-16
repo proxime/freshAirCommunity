@@ -5,6 +5,9 @@ const path = require('path');
 // Init Middleware
 app.use(express.json({ extended: false }));
 
+// Define Routes
+app.use('/api/data', require('./routes/api/data'));
+
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
     // Set static folder
