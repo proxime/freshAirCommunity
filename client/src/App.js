@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import Slider from './Components/Dashboard/Slider';
-import Countries from './Components/PollutionControl/Countries';
+import PollutionControl from './Components/PollutionControl/PollutionControl';
 // redux setup
 import { Provider } from 'react-redux';
 import store from './store';
@@ -16,7 +16,7 @@ function App() {
           <Navbar />
           <Switch>
             <Route path="/" exact component={Slider} />>
-            <Route path="/pollution" exact component={Countries} />>
+            <Route path="/pollution" exact component={PollutionControl} />>
           </Switch>
         </div>
       </Router>
