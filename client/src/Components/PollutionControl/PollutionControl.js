@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import CountriesSelect from './CountriesSelect';
 import StateSelect from './StateSelect';
 import CitiesSelect from './CitiesSelect';
+import PollutionResult from './PollutionResult';
 import { connect } from 'react-redux';
 import { initData } from '../../actions/data';
 import { getStates } from '../../actions/data';
@@ -81,6 +82,7 @@ const PollutionControl = ({ getStates, initData, countries, getCities, getCity }
                     </div>
                 </div>
             </div>
+            <PollutionResult />
         </div>
     );
 }

@@ -6,7 +6,20 @@
   background-size: cover;
 }
 
+.pollution-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: black;
+  opacity: 0.35;
+}
+
 .polution-cover {
+  position: relative;
+  z-index: 2;
   display: flex;
   width: 100%;
   height: 100%;
@@ -70,4 +83,70 @@
   text-align: right;
   width: 100%;
   font-weight: 300;
+}
+
+.pollution-result {
+  padding: 50px 100px;
+}
+
+.pollution-result-name {
+  min-width: 400px;
+  margin-bottom: 25px;
+}
+
+.pollution-result-name h1 {
+  font-size: 7rem;
+  font-weight: 700;
+}
+
+.pollution-result-name p {
+  font-size: 1.8rem;
+  margin-top: -15px;
+  font-weight: 500;
+  padding-left: 3px;
+}
+
+.pollution-result-cards {
+  display: flex;
+}
+
+.pollution-result-card {
+  box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.5);
+  padding: 10px 30px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  margin: 0 25px;
+}
+
+.pollution-card-desc h1 {
+  font-size: 4rem;
+  font-weight: 500;
+  min-width: 120px;
+}
+
+.pollution-card-desc p {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-top: -10px;
+}
+
+.pollution-card-image {
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  margin-left: 40px;
+  margin-right: 10px;
+}
+
+.pollution-card-color {
+  position: absolute;
+  background-color: orange;
+  width: 86%;
+  height: 50px;
+  left: 7%;
+  top: calc(100% - 6px);
+  border-radius: 10px;
 }
