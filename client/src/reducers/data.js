@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_STATES, GET_CITIES, GET_CITY } from "../actions/types";
+import { GET_COUNTRIES, GET_STATES, GET_CITIES, GET_CITY, DELETE_STATES, DELETE_CITIES } from "../actions/types";
 
 const initialState = {
     countries: [],
@@ -30,6 +30,16 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 city: payload
+            }
+        case DELETE_STATES:
+            return {
+                ...state,
+                states: []
+            }
+        case DELETE_CITIES:
+            return {
+                ...state,
+                cities: []
             }
         default:
             return state;

@@ -86,7 +86,7 @@
 }
 
 .pollution-result {
-  padding: 50px 100px;
+  padding: 50px 100px 10px 100px;
 }
 
 .pollution-result-name {
@@ -108,6 +108,7 @@
 
 .pollution-result-cards {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .pollution-result-card {
@@ -119,12 +120,13 @@
   position: relative;
   overflow: hidden;
   margin: 0 25px;
+  margin-bottom: 20px;
 }
 
 .pollution-card-desc h1 {
   font-size: 4rem;
   font-weight: 500;
-  min-width: 120px;
+  min-width: 140px;
 }
 
 .pollution-card-desc p {
@@ -134,11 +136,14 @@
 }
 
 .pollution-card-image {
-  width: 30px;
-  height: 30px;
-  background-color: red;
-  margin-left: 40px;
+  width: 70px;
+  height: 70px;
+  margin-left: 30px;
   margin-right: 10px;
+}
+
+.pollution-card-image img {
+  width: 100%;
 }
 
 .pollution-card-color {

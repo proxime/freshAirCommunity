@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_COUNTRIES, GET_STATES, GET_CITIES, GET_CITY } from './types';
+import { GET_COUNTRIES, GET_STATES, GET_CITIES, GET_CITY, DELETE_STATES, DELETE_CITIES } from './types';
 
 // GET countries
 export const getCountries = () => async dispatch => {
@@ -88,6 +88,20 @@ export const getCity = (country, state, city) => async dispatch => {
     } catch (err) {
         console.log(err);
     }
+}
+
+// Delete state list
+export const deleteStates = () => dispatch => {
+    dispatch({
+        type: DELETE_STATES,
+    })
+}
+
+// Delete city list
+export const deleteCities = () => dispatch => {
+    dispatch({
+        type: DELETE_CITIES,
+    })
 }
 
 // Init all data

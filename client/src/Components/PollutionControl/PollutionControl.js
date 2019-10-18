@@ -6,25 +6,39 @@ import StateSelect from './StateSelect';
 import CitiesSelect from './CitiesSelect';
 import PollutionResult from './PollutionResult';
 import { connect } from 'react-redux';
-import { initData } from '../../actions/data';
-import { getStates } from '../../actions/data';
-import { getCities } from '../../actions/data';
-import { getCity } from '../../actions/data';
+import { initData, getStates, getCities, getCity, deleteStates, deleteCities } from '../../actions/data';
 
-const PollutionControl = ({ getStates, initData, countries, getCities, getCity }) => {
+const PollutionControl = ({ getStates, initData, data, city, getCities, getCity, deleteStates, deleteCities }) => {
+    const [formData, setFormData] = useState({
+        country: data.countries.length ? city.country : "select",
+        state: data.states.length ? city.state : "select",
+        city: data.cities.length ? city.city : "select"
+    })
+    const [disabledBtn, setDisabledBtn] = useState(false);
+
     useEffect(() => {
-        if (countries.length === 0) {
+        if (city.city === undefined) {
             initData();
+            setFormData({
+                country: 'Poland',
+                state: 'Mazovia',
+                city: 'Warsaw'
+            });
+        }
+        if (city.city !== undefined) {
+            getStates(city.country);
+            getCities(city.country, city.state);
+            setFormData({
+                ...formData,
+                state: city.state,
+                city: city.city,
+            })
         }
     }, [])
 
-    const [formData, setFormData] = useState({
-        country: 'Poland',
-        state: 'Mazovia',
-        city: 'Warsaw',
-    })
-
     const onchangeCountry = e => {
+        deleteStates();
+        deleteCities();
         setFormData({
             country: e.target.value,
             state: "select",
@@ -34,6 +48,7 @@ const PollutionControl = ({ getStates, initData, countries, getCities, getCity }
     }
 
     const onchangeState = e => {
+        deleteCities();
         setFormData({
             ...formData,
             state: e.target.value,
@@ -51,11 +66,16 @@ const PollutionControl = ({ getStates, initData, countries, getCities, getCity }
 
     const onsubmit = e => {
         e.preventDefault();
-        const { country, state, city } = formData;
+        if (disabledBtn) return;
+        const { country, state } = formData;
         if (!country || country === "select") return;
         if (!state || state === "select") return;
         if (!city || city === "select") return;
-        getCity(country, state, city);
+        if (formData.city === city.city) return;
+        console.log('send')
+        setDisabledBtn(true);
+        setTimeout(() => setDisabledBtn(false), 2000);
+        getCity(country, state, formData.city);
     }
 
     return (
@@ -88,14 +108,19 @@ const PollutionControl = ({ getStates, initData, countries, getCities, getCity }
 }
 
 PollutionControl.propTypes = {
+    city: PropTypes.object.isRequired,
+    data: PropTypes.object.isRequired,
     getStates: PropTypes.func.isRequired,
     initData: PropTypes.func.isRequired,
     getCities: PropTypes.func.isRequired,
     getCity: PropTypes.func.isRequired,
+    deleteStates: PropTypes.func.isRequired,
+    deleteCities: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
-    countries: state.data.countries,
+    data: state.data,
+    city: state.data.city,
 })
 
-export default connect(mapStateToProps, { getStates, initData, getCities, getCity })(PollutionControl);
+export default connect(mapStateToProps, { getStates, initData, getCities, getCity, deleteStates, deleteCities })(PollutionControl);

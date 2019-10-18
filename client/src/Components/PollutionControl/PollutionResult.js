@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Weather from './Results/Weather';
+import Pollution from './Results/Pollution';
 
 const PollutionResult = ({ city }) => {
-    console.log(city);
 
     return (
         city.city !== undefined ? (
@@ -13,26 +14,8 @@ const PollutionResult = ({ city }) => {
                     <p>{city.country} // {city.state}</p>
                 </div>
                 <div className="pollution-result-cards">
-                    <div className="pollution-result-card">
-                        <div className="pollution-card-desc">
-                            <h1>29&deg;C</h1>
-                            <p>Słonecznie</p>
-                        </div>
-                        <div className="pollution-card-image">
-
-                        </div>
-                        <div className="pollution-card-color"></div>
-                    </div>
-                    <div className="pollution-result-card">
-                        <div className="pollution-card-desc">
-                            <h1>29&deg;C</h1>
-                            <p>Słonecznie</p>
-                        </div>
-                        <div className="pollution-card-image">
-
-                        </div>
-                        <div className="pollution-card-color"></div>
-                    </div>
+                    <Pollution pollution={city.current.pollution}/>
+                    <Weather weather={city.current.weather}/>
                     <div className="pollution-result-card">
                         <div className="pollution-card-desc">
                             <h1>29&deg;C</h1>
