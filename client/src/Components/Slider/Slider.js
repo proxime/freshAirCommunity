@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import mountains from '../../images/mountains.jpg';
-import './Dashboard.css';
+import './Slider.css';
 
 const Slider = () => {
     const [slide, setSile] = useState(0);

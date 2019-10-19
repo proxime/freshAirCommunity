@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
-import Slider from './Components/Dashboard/Slider';
+import Dashboard from './Components/Dashboard/Dashboard';
 import PollutionControl from './Components/PollutionControl/PollutionControl';
 // redux setup
 import { Provider } from 'react-redux';
@@ -15,7 +15,7 @@ function App() {
         <div className="App">
           <Navbar />
           <Switch>
-            <Route path="/" exact component={Slider} />>
+            <Route path="/" exact component={Dashboard} />>
             <Route path="/pollution" exact component={PollutionControl} />>
           </Switch>
         </div>

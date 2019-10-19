@@ -18,3 +18,7 @@ html {
 .bold {
   font-weight: 600;
 }
+
+.right {
+  text-align: right;
+}
