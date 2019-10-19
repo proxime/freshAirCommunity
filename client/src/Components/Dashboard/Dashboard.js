@@ -3,6 +3,7 @@ import './Dashboard.css';
 import DashboardHead from './DashboardHead';
 import DashboardSubstance from './DashboardSubstance';
 import DashboardSmog from './DashboardSmog';
+import DashboardHowTo from './DashboardHowTo';
 import cracowImg from '../../images/cities/cracow.jpg';
 
 const Dashboard = () => {
@@ -19,7 +20,7 @@ const Dashboard = () => {
                 <p><span className="bold">Smog jest nienaturalnym zjawiskiem atmosferycznym,</span> które polega na współistnieniu związków chemicznych oraz pyłów w naszej atmosferze. Przebywanie, oddychanie nim <span className="bold">zagraża naszemu zdrowiu i życiu.</span></p>
             </div>
             <DashboardSubstance />
-            <DashboardSmog />
+            <DashboardHowTo />
             <div className="dashboard-cities-container">
                 <h1>
                     <div className="section-before"></div>

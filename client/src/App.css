@@ -15,10 +15,33 @@ html {
   padding-top: 60px;
 }
 
+.min-container {
+  padding-top: 60px;
+  min-height: 100vh;
+}
+
 .bold {
   font-weight: 600;
 }
 
 .right {
   text-align: right;
+}
+
+.blue-gradient {
+  background: linear-gradient(
+    338deg,
+    rgba(17, 97, 135, 1) 0%,
+    rgba(10, 174, 251, 1) 100%
+  ) !important;
+  color: white;
+}
+
+.gray-gradnient {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(182, 182, 182, 1) 100%
+  ) !important;
+  color: black;
 }

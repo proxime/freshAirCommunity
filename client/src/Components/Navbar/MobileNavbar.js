@@ -14,6 +14,7 @@ const MobileNavbar = () => {
                     <li><Link onClick={() => setMenuActive(false)} to="/">Strona Główna</Link></li>
                     <li><Link onClick={() => setMenuActive(false)} to="/pollution">Zanieczyszczenia</Link></li>
                     <li><Link onClick={() => setMenuActive(false)} to="#!">Forum</Link></li>
+                    <li><Link onClick={() => setMenuActive(false)} to="/auth/login">Zaloguj się</Link></li>
                 </ul>
             </div>
         </>

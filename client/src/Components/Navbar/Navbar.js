@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../images/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Navbar.css';
 import MobileNavbar from './MobileNavbar.js';
 
@@ -10,12 +10,15 @@ const Navbar = () => {
             <div className="navbar-logo-container">
                 <img src={logo} alt="Fresh Air Community" className="navbar-logo" />
             </div>
+            <div className="navbar-login">
+                <Link to="/auth/login">Zaloguj się</Link>
+            </div>
             <MobileNavbar />
             <div className="navbar-list-container">
                 <ul className="navbar-list">
-                    <li><Link to="/">Strona Główna</Link></li>
-                    <li><Link to="/pollution">Zanieczyszczenia</Link></li>
-                    <li><Link to="#!">Forum</Link></li>
+                    <li><NavLink exact to="/" activeClassName="active">Strona Główna</NavLink></li>
+                    <li><NavLink exact to="/pollution" activeClassName="active">Zanieczyszczenia</NavLink></li>
+                    <li><NavLink exact to="/forum" activeClassName="active">Forum</NavLink></li>
                 </ul>
             </div>
         </nav>
