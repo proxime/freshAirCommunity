@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../../images/logo.png';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import MobileNavbar from './MobileNavbar.js';
 
 const Navbar = () => {
     return (
@@ -9,6 +10,7 @@ const Navbar = () => {
             <div className="navbar-logo-container">
                 <img src={logo} alt="Fresh Air Community" className="navbar-logo" />
             </div>
+            <MobileNavbar />
             <div className="navbar-list-container">
                 <ul className="navbar-list">
                     <li><Link to="/">Strona Główna</Link></li>

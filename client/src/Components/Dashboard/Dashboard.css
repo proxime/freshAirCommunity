@@ -40,12 +40,6 @@
   flex-wrap: wrap;
 }
 
-.dashboard-section h1 span,
-.dashboard-substances h1 span,
-.dashboard-cities-container span {
-  padding-right: 8px;
-}
-
 .dashboard-section p,
 .dashboard-substances p {
   font-size: 2rem;
@@ -146,7 +140,7 @@
 
 .dashboard-cities-item {
   width: 20%;
-  max-width: 180px;
+  max-width: 250px;
   padding: 25px;
   text-align: center;
 }
@@ -173,4 +167,192 @@
 
 .dashboard-cities-item-circle img {
   position: absolute;
+}
+
+@media (max-width: 1400px) {
+  .dashboard-smog-desc {
+    padding: 50px;
+  }
+}
+
+@media (max-width: 1240px) {
+  .dashboard-substances {
+    padding: 50px 30px;
+    background-size: 70%;
+    background-position: 170% 20%;
+  }
+
+  .dashboard-substances-circle {
+    margin-bottom: 10px;
+  }
+
+  .dashboard-smog-desc {
+    padding: 50px 30px;
+  }
+
+  .dashboard-somg-item h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+
+  .smog-section {
+    padding: 0 10px;
+    margin-bottom: 10px;
+  }
+
+  .smog-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .dashboard-cities-container {
+    padding: 50px 30px;
+  }
+
+  .dashboard-cities-item {
+    padding: 15px;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dashboard-substances {
+    background-size: 80%;
+    background-position: 210% 15%;
+  }
+
+  .dashboard-substances-circle p {
+    font-size: 3rem;
+  }
+
+  .dashboard-substances-desc p {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-substances-desc p:last-child {
+    margin-bottom: 20px;
+  }
+
+  .dashboard-smog-desc {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  .dashboard-somg-item {
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid white;
+    margin-top: 15px;
+    width: 100%;
+  }
+
+  .smog-section {
+    text-align: left;
+  }
+
+  .dashboard-somg-item h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .dashboard-section {
+    padding: 70px 40px;
+  }
+
+  .dashboard-substances-belt {
+    flex-wrap: wrap;
+  }
+
+  .dashboard-substances-item {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dashboard-substances-circle {
+    width: 60%;
+    padding-top: 60%;
+  }
+
+  .dashboard-cities {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dashboard-cities-item {
+    width: 50%;
+    max-width: 300px;
+  }
+
+  .dashboard-cities-item-circle {
+    border-radius: 0;
+    padding-top: 70%;
+    margin-bottom: 5px;
+  }
+
+  .dashboard-cities-container h1 {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-logo {
+    min-height: calc(100vh - 60px);
+  }
+
+  .dashboard-logo img {
+    min-width: 300px;
+  }
+
+  .dashboard-substances-circle {
+    width: 75%;
+    padding-top: 75%;
+  }
+
+  .dashboard-cities-item {
+    width: 70%;
+  }
+}
+
+@media (max-width: 400px) {
+  .dashboard-section {
+    padding: 50px 30px;
+  }
+
+  .dashboard-logo img {
+    min-width: 250px;
+  }
+
+  .dashboard-section h1,
+  .dashboard-substances h1 {
+    font-size: 2.3rem;
+    margin-bottom: 20px;
+  }
+
+  .dashboard-cities-container h1 {
+    font-size: 2.3rem;
+  }
+
+  .dashboard-substances-item {
+    width: 50%;
+  }
+
+  .dashboard-somg-item {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .dashboard-somg-item h1 {
+    font-size: 2.6rem;
+  }
+
+  .dashboard-cities-item {
+    width: 90%;
+  }
+
+  .dashboard-cities-container {
+    padding-bottom: 25px;
+  }
 }
