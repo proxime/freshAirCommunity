@@ -87,7 +87,7 @@
 }
 
 .pollution-result {
-  padding: 50px 100px 10px 100px;
+  padding: 30px 100px 10px 100px;
 }
 
 .pollution-result-name {
@@ -113,15 +113,14 @@
 }
 
 .pollution-result-card {
-  box-shadow: 0 0 25px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 25px -2px rgba(0, 0, 0, 0.5);
   padding: 10px 30px;
   border-radius: 40px;
   display: flex;
   align-items: center;
   position: relative;
-  overflow: hidden;
   margin: 0 25px;
-  margin-bottom: 20px;
+  margin-bottom: 65px;
 }
 
 .pollution-card-desc h1 {
@@ -147,19 +146,43 @@
   width: 100%;
 }
 
+.pollution-card-color-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
 .pollution-card-color {
   position: absolute;
   background-color: orange;
   width: 86%;
   height: 50px;
   left: 7%;
-  top: calc(100% - 6px);
+  top: calc(100% - 7px);
   border-radius: 10px;
+}
+
+.pollution-card-name {
+  position: absolute;
+  width: 60%;
+  top: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  text-align: center;
+  box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 1400px) {
   .pollution-result {
-    padding: 50px 40px 10px 40px;
+    padding: 30px 40px 10px 40px;
   }
 }
 
@@ -171,10 +194,10 @@
     min-width: 40%;
   }
   .pollution-result-card {
-    margin: 0px 0 20px 10px;
+    margin: 0px 0 65px 10px;
   }
   .pollution-result {
-    padding: 40px 20px 10px 20px;
+    padding: 30px 20px 10px 20px;
   }
 }
 
@@ -270,6 +293,6 @@
     font-size: 1.4rem;
   }
   .pollution-result {
-    padding: 40px 10px 10px 10px;
+    padding: 30px 10px 10px 10px;
   }
 }

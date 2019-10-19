@@ -52,7 +52,12 @@ const Pollution = ({ pollution }) => {
             <div className="pollution-card-image">
 
             </div>
-            <div className="pollution-card-color" style={{ backgroundColor: color }}></div>
+            <div className="pollution-card-color-container">
+                <div className="pollution-card-color" style={{ backgroundColor: color }}></div>
+            </div>
+            <div className="pollution-card-name">
+                Indeks jakości powietrza
+            </div>
         </div>
     );
 }

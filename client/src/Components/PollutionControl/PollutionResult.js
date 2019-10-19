@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Weather from './Results/Weather';
 import Pollution from './Results/Pollution';
+import Wind from './Results/Wind';
+import Pressure from './Results/Pressure';
 
 const PollutionResult = ({ city }) => {
 
@@ -16,36 +18,8 @@ const PollutionResult = ({ city }) => {
                 <div className="pollution-result-cards">
                     <Pollution pollution={city.current.pollution}/>
                     <Weather weather={city.current.weather}/>
-                    <div className="pollution-result-card">
-                        <div className="pollution-card-desc">
-                            <h1>29&deg;C</h1>
-                            <p>Słonecznie</p>
-                        </div>
-                        <div className="pollution-card-image">
-
-                        </div>
-                        <div className="pollution-card-color"></div>
-                    </div>
-                    <div className="pollution-result-card">
-                        <div className="pollution-card-desc">
-                            <h1>29&deg;C</h1>
-                            <p>Słonecznie</p>
-                        </div>
-                        <div className="pollution-card-image">
-
-                        </div>
-                        <div className="pollution-card-color"></div>
-                    </div>
-                    <div className="pollution-result-card">
-                        <div className="pollution-card-desc">
-                            <h1>29&deg;C</h1>
-                            <p>Słonecznie</p>
-                        </div>
-                        <div className="pollution-card-image">
-
-                        </div>
-                        <div className="pollution-card-color"></div>
-                    </div>
+                    <Wind wind={city.current.weather.ws}/>
+                    <Pressure pressure={city.current.weather.pr}/>
                 </div>
             </div>
         ) : (

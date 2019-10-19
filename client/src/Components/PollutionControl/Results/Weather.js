@@ -89,7 +89,12 @@ const Weather = ({ weather }) => {
             <div className="pollution-card-image">
                 <img src={icon} alt="" />
             </div>
-            <div className="pollution-card-color"></div>
+            <div className="pollution-card-color-container">
+                <div className="pollution-card-color"></div>
+            </div>
+            <div className="pollution-card-name">
+                Pogoda
+            </div>
         </div>
     );
 }
