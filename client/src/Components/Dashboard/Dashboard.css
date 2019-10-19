@@ -256,6 +256,11 @@
 }
 
 @media (max-width: 800px) {
+  .dashboard-substances {
+    background-size: 130%;
+    background-position: -60% 25%;
+  }
+
   .dashboard-section {
     padding: 70px 40px;
   }
@@ -298,6 +303,11 @@
 }
 
 @media (max-width: 600px) {
+  .dashboard-substances {
+    background-size: 170%;
+    background-position: 10% bottom;
+  }
+
   .dashboard-logo {
     min-height: calc(100vh - 60px);
   }
@@ -317,6 +327,11 @@
 }
 
 @media (max-width: 400px) {
+  .dashboard-substances {
+    background-size: 270%;
+    background-position: 20% bottom;
+  }
+
   .dashboard-section {
     padding: 50px 30px;
   }
