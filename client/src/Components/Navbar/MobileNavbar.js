@@ -7,7 +7,7 @@ const MobileNavbar = () => {
     return (
         <>
             <div className="mobile-nav-btn" onClick={() => setMenuActive(!menuActive)}>
-                <i class="fas fa-bars"></i> <span>menu</span>
+                <i className="fas fa-bars"></i> <span>menu</span>
             </div>
             <div className={menuActive ? 'mobile-nav active' : 'mobile-nav'}>
                 <ul>

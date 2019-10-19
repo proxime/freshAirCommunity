@@ -32,6 +32,7 @@
   justify-content: center;
   flex-direction: column;
   height: 100%;
+  min-width: 350px;
 }
 
 .polution-form-item {
@@ -90,7 +91,6 @@
 }
 
 .pollution-result-name {
-  min-width: 400px;
   margin-bottom: 25px;
 }
 
@@ -109,6 +109,7 @@
 .pollution-result-cards {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .pollution-result-card {
@@ -154,4 +155,121 @@
   left: 7%;
   top: calc(100% - 6px);
   border-radius: 10px;
+}
+
+@media (max-width: 1400px) {
+  .pollution-result {
+    padding: 50px 40px 10px 40px;
+  }
+}
+
+@media (max-width: 1240px) {
+  .polution-cover form {
+    width: 40%;
+  }
+  .polution-form-item button {
+    min-width: 40%;
+  }
+  .pollution-result-card {
+    margin: 0px 0 20px 10px;
+  }
+  .pollution-result {
+    padding: 40px 20px 10px 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pollution-container {
+    padding: 40px;
+  }
+
+  .polution-cover {
+    flex-direction: column;
+  }
+
+  .pollution-desc {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .pollution-desc p {
+    text-align: center;
+  }
+
+  .polution-cover form {
+    order: 2;
+  }
+}
+
+@media (max-width: 696px) {
+  .pollution-result-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .pollution-result-card {
+    margin-left: 0;
+  }
+  .pollution-result-name {
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .pollution-result-name h1 {
+    font-size: 5rem;
+  }
+  .pollution-result-name p {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .polution-cover {
+    align-items: center;
+  }
+  .pollution-desc p {
+    font-size: 3rem;
+  }
+  .polution-form-item button {
+    margin-top: 0;
+  }
+  .pollution-container {
+    padding: 40px 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .pollution-desc p {
+    font-size: 2.1rem;
+  }
+
+  .polution-cover form {
+    min-width: 300px;
+  }
+
+  .polution-form-item label {
+    font-size: 1.8rem;
+  }
+  .pollution-result-name h1 {
+    font-size: 3.5rem;
+  }
+  .pollution-result-name p {
+    font-size: 1.5rem;
+    margin-top: -5px;
+    margin-left: 0;
+  }
+  .pollution-card-desc h1 {
+    font-size: 3rem;
+    min-width: 115px;
+  }
+  .pollution-card-image {
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+  }
+  .pollution-card-desc p {
+    font-size: 1.4rem;
+  }
+  .pollution-result {
+    padding: 40px 10px 10px 10px;
+  }
 }
