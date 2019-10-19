@@ -143,6 +143,20 @@
   max-width: 250px;
   padding: 25px;
   text-align: center;
+  position: relative;
+}
+
+.dashboard-cities-item-circle-shadow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(182, 182, 182, 0.9) 100%
+  );
+  border-radius: 50%;
 }
 
 .dashboard-cities-item-circle {
@@ -151,9 +165,9 @@
   padding-top: 100%;
   background-color: red;
   border-radius: 50%;
-  margin-bottom: 10px;
   background-position: center;
   background-size: cover;
+  z-index: 5;
 }
 
 .dashboard-cities-item h2 {
@@ -294,11 +308,15 @@
   .dashboard-cities-item-circle {
     border-radius: 0;
     padding-top: 70%;
-    margin-bottom: 5px;
   }
 
   .dashboard-cities-container h1 {
     margin-bottom: 0;
+  }
+
+  .dashboard-cities-item-circle-shadow {
+    padding: 5px;
+    border-radius: 0;
   }
 }
 

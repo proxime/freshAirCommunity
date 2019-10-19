@@ -9,7 +9,8 @@
   z-index: 100;
   align-items: center;
   padding: 5px;
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
+  box-shadow: 0px 0px 20px -5px black;
 }
 
 .navbar-logo-container {
@@ -82,7 +83,7 @@
 .mobile-nav {
   display: none;
   position: absolute;
-  top: calc(100% + 1px);
+  top: 100%;
   left: 0;
   width: 100%;
   height: 0;
@@ -91,7 +92,7 @@
 }
 
 .mobile-nav.active {
-  height: 207px;
+  height: 208px;
 }
 
 .mobile-nav ul {
@@ -108,6 +109,10 @@
   border-bottom: 1px solid black;
   color: black;
   transition: padding-left 0.3s ease;
+}
+
+.mobile-nav ul li:first-child {
+  border-top: 1px solid black;
 }
 
 .mobile-nav ul a:hover {

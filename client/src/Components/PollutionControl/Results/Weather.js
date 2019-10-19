@@ -22,7 +22,7 @@ const Weather = ({ weather }) => {
         switch (weatherNumber) {
             case "01d":
                 setIcon(w01d);
-                setWeatherText('Słoczecnie');
+                setWeatherText('Słonecznie');
                 break;
             case "01n":
                 setIcon(w01n);

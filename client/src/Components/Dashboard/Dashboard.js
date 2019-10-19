@@ -29,31 +29,41 @@ const Dashboard = () => {
                 </h1>
                 <div className="dashboard-cities">
                     <div className="dashboard-cities-item">
-                        <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${cracowImg}')` }}>
+                        <div className="dashboard-cities-item-circle-shadow">
+                            <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${cracowImg}')` }}>
+                            </div>
                         </div>
                         <h2>Kraków</h2>
                         <p>Polska</p>
                     </div>
                     <div className="dashboard-cities-item">
-                        <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${cracowImg}')` }}>
+                        <div className="dashboard-cities-item-circle-shadow">
+                            <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${cracowImg}')` }}>
+                            </div>
                         </div>
                         <h2>Kraków</h2>
                         <p>Polska</p>
                     </div>
                     <div className="dashboard-cities-item">
-                        <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${cracowImg}')` }}>
+                        <div className="dashboard-cities-item-circle-shadow">
+                            <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${cracowImg}')` }}>
+                            </div>
                         </div>
                         <h2>Kraków</h2>
                         <p>Polska</p>
                     </div>
                     <div className="dashboard-cities-item">
-                        <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${cracowImg}')` }}>
+                        <div className="dashboard-cities-item-circle-shadow">
+                            <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${cracowImg}')` }}>
+                            </div>
                         </div>
                         <h2>Kraków</h2>
                         <p>Polska</p>
                     </div>
                     <div className="dashboard-cities-item">
-                        <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${cracowImg}')` }}>
+                        <div className="dashboard-cities-item-circle-shadow">
+                            <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${cracowImg}')` }}>
+                            </div>
                         </div>
                         <h2>Kraków</h2>
                         <p>Polska</p>
