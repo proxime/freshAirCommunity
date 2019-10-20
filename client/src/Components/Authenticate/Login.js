@@ -40,7 +40,10 @@ const Login = ({ alert, loginUser, setAlert, clearAlerts, deleteAlert }) => {
     const dataAlert = alert.filter(item => item.param === 'data');
 
     useEffect(() => {
-        return () => clearAlerts();
+        return () => {
+            clearAlerts();
+            window.scrollTo(0, 0);
+        }
     }, []);
 
     return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Dashboard.css';
 import DashboardHead from './DashboardHead';
 import DashboardSubstance from './DashboardSubstance';
@@ -6,6 +6,12 @@ import DashboardHowTo from './DashboardHowTo';
 import cracowImg from '../../images/cities/cracow.jpg';
 
 const Dashboard = () => {
+    useEffect(() => {
+        return () => {
+            window.scrollTo(0, 0);
+        }
+    }, []);
+
     return (
         <div className="container">
             <DashboardHead />

@@ -46,7 +46,10 @@ const Register = ({ registerUser, setAlert, clearAlerts, alert, deleteAlert }) =
     const password2Alert = alert.filter(item => item.param === 'password2');
 
     useEffect(() => {
-        return () => clearAlerts();
+        return () => {
+            clearAlerts();
+            window.scrollTo(0, 0);
+        }
     }, []);
 
     return (

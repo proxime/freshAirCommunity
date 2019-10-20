@@ -1,0 +1,74 @@
+.profile-navbar {
+  position: fixed;
+  height: calc(100vh - 60px);
+  top: 60px;
+  background-color: rgb(226, 225, 225);
+  width: 270px;
+  color: black;
+  overflow-x: hidden;
+  transition: width 0.15s ease;
+}
+
+.profile-navbar.min {
+  width: 70px;
+}
+
+.profile-navbar-slide-icon-container {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+}
+
+.profile-navbar-slide-icon {
+  font-size: 3rem;
+  width: 70px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-navbar a,
+.profile-navbar-logout {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  text-decoration: none;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-navbar a.active {
+  background-color: #0aaefb !important;
+}
+
+.profile-navbar a.active .profile-navbar-icon,
+.profile-navbar a.active p {
+  color: white;
+}
+
+.profile-navbar a:hover,
+.profile-navbar-logout:hover,
+.profile-navbar-slide-icon-container:hover {
+  background-color: rgb(206, 206, 206);
+}
+
+.profile-navbar a .profile-navbar-icon,
+.profile-navbar-logout .profile-navbar-icon {
+  font-size: 4rem;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+
+.profile-navbar a p,
+.profile-navbar-logout p {
+  position: absolute;
+  font-size: 1.7rem;
+  color: black;
+  font-weight: 600;
+  left: 90px;
+  width: 180px;
+}

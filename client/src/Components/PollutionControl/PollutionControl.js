@@ -34,6 +34,10 @@ const PollutionControl = ({ getStates, initData, data, city, getCities, getCity,
                 city: city.city,
             })
         }
+
+        return () => {
+            window.scrollTo(0, 0);
+        }
     }, [])
 
     const onchangeCountry = e => {
