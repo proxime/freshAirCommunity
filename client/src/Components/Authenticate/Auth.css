@@ -43,13 +43,17 @@
   margin-top: 50px;
 }
 
+.auth-form form label {
+  position: relative;
+  margin-bottom: 35px;
+}
+
 .auth-form form input {
   font-size: 2rem;
   padding: 5px 15px;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
   width: 100%;
-  margin-bottom: 35px;
   outline: none;
   box-shadow: 0 0px 0px 0px #1473e6;
   transition: border-bottom 0.2s ease, box-shadow 0.2s ease;
@@ -75,8 +79,24 @@
   color: white;
   border-radius: 20px;
   transition: background-color 0.2s ease;
+  outline: none;
 }
 
 .auth-form form button:hover {
   background-color: #1966c5;
+}
+
+.auth-form form p.input-warning {
+  position: absolute;
+  top: calc(100% + 3px);
+  color: red;
+  font-size: 1.2rem;
+  padding-left: 5px;
+}
+
+.bad-login {
+  text-align: center;
+  margin-top: 20px;
+  color: red;
+  font-size: 2.2rem;
 }

@@ -13,13 +13,13 @@ const PollutionResult = ({ city }) => {
             <div className="pollution-result">
                 <div className="pollution-result-name">
                     <h1>{city.city}</h1>
-                    <p>{city.country} // {city.state}</p>
+                    <p>{city.country} {'//'} {city.state}</p>
                 </div>
                 <div className="pollution-result-cards">
-                    <Pollution pollution={city.current.pollution}/>
-                    <Weather weather={city.current.weather}/>
-                    <Wind wind={city.current.weather.ws}/>
-                    <Pressure pressure={city.current.weather.pr}/>
+                    <Pollution pollution={city.current.pollution} />
+                    <Weather weather={city.current.weather} />
+                    <Wind wind={city.current.weather.ws} />
+                    <Pressure pressure={city.current.weather.pr} />
                 </div>
             </div>
         ) : (

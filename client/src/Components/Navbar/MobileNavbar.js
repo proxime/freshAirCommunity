@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const MobileNavbar = () => {
+const MobileNavbar = ({ auth }) => {
     const [menuActive, setMenuActive] = useState(false);
+
+    console.log(auth.isAuthenticated)
 
     return (
         <>
@@ -14,11 +18,23 @@ const MobileNavbar = () => {
                     <li><Link onClick={() => setMenuActive(false)} to="/">Strona Główna</Link></li>
                     <li><Link onClick={() => setMenuActive(false)} to="/pollution">Zanieczyszczenia</Link></li>
                     <li><Link onClick={() => setMenuActive(false)} to="#!">Forum</Link></li>
-                    <li><Link onClick={() => setMenuActive(false)} to="/auth/login">Zaloguj się</Link></li>
+                    {auth.isAuthenticated ? (
+                        <li><Link onClick={() => setMenuActive(false)} to="/auth/profile">Mój profil</Link></li>
+                    ) : (
+                            <li><Link onClick={() => setMenuActive(false)} to="/auth/login">Zaloguj się</Link></li>
+                        )}
                 </ul>
-            </div>
+            </div >
         </>
     );
 }
 
-export default MobileNavbar;
+MobileNavbar.propTypes = {
+    auth: PropTypes.object.isRequired,
+}
+
+const mapStateToProps = state => ({
+    auth: state.auth
+})
+
+export default connect(mapStateToProps)(MobileNavbar);

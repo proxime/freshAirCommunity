@@ -2,5 +2,7 @@
   "AirVisualKey1": "4d22b40e-42ba-4ee3-874c-74beb56fb89d",
   "AirVisualKey2": "71db126c-b3a3-4e11-8b7a-33a6aded7f3e",
   "AirVisualKey3": "2f0c92d7-9b64-4e14-af0a-c81ad8691e43",
-  "AirVisualKey4": "341ae4bc-24e5-4e14-beb5-976b7b706b1a"
+  "AirVisualKey4": "341ae4bc-24e5-4e14-beb5-976b7b706b1a",
+  "mongoURI": "mongodb+srv://fresh:PUKiufmdTSfUybYU@cluster0-i7ac8.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "AXGasq14941DFxaDGH"
 }

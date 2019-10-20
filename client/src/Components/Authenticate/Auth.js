@@ -1,10 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Auth.css';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Login from './Login';
 import Register from './Register';
 
-const Auth = () => {
+const Auth = ({ isAuthenticated }) => {
+    if (isAuthenticated) {
+        return <Redirect to="/profile" />
+    }
+
     return (
         <div className="min-container">
             <div className="auth-container">
@@ -20,4 +26,12 @@ const Auth = () => {
     );
 }
 
-export default Auth;
+Auth.propTypes = {
+    isAuthenticated: PropTypes.bool,
+}
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated,
+})
+
+export default connect(mapStateToProps)(Auth);

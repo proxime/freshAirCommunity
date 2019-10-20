@@ -2,7 +2,6 @@ import React from 'react';
 import './Dashboard.css';
 import DashboardHead from './DashboardHead';
 import DashboardSubstance from './DashboardSubstance';
-import DashboardSmog from './DashboardSmog';
 import DashboardHowTo from './DashboardHowTo';
 import cracowImg from '../../images/cities/cracow.jpg';
 
