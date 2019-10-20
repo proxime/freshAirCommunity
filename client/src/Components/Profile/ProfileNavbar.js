@@ -50,7 +50,7 @@ const ProfileNavbar = ({ logout }) => {
                         <div className="profile-navbar-icon">
                             <i class="far fa-clipboard"></i>
                         </div>
-                        <p>Moje Posty</p>
+                        <p>Moja Aktywność</p>
                     </NavLink>
                 </li>
                 <li>

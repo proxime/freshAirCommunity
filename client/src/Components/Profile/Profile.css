@@ -4,7 +4,7 @@
   top: 60px;
   background-color: rgba(226, 225, 225, 0.6);
   width: 270px;
-  color: black;
+  color: rgba(0, 0, 0, 0.4);
   overflow-x: hidden;
   transition: width 0.15s ease;
 }
@@ -56,19 +56,32 @@
 
 .profile-navbar a .profile-navbar-icon,
 .profile-navbar-logout .profile-navbar-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   width: 60px;
   display: flex;
   justify-content: center;
-  color: black;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .profile-navbar a p,
 .profile-navbar-logout p {
   position: absolute;
   font-size: 1.7rem;
-  color: black;
+  color: rgba(0, 0, 0, 0.4);
   font-weight: 600;
-  left: 68px;
+  left: 60px;
   width: 180px;
+}
+
+.profile-navbar-slide-icon-container:hover,
+.profile-navbar a:hover .profile-navbar-icon,
+.profile-navbar a:hover p,
+.profile-navbar-logout:hover p,
+.profile-navbar-logout:hover .profile-navbar-icon {
+  color: black;
+}
+
+.profile-navbar a.active:hover p,
+.profile-navbar a.active:hover .profile-navbar-icon {
+  color: white;
 }

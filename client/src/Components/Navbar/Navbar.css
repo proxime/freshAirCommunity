@@ -51,10 +51,10 @@
   text-decoration: none;
   height: 100%;
   box-shadow: inset 0px 0px 0px -1px rgba(0, 0, 0, 0.75);
+  transition: 0.25s 0.1s ease box-shadow;
 }
 
 .navbar-list li a:hover {
-  transition: 0.3s 0.1s ease box-shadow;
   box-shadow: inset 0px -4px 0px -1px rgba(0, 0, 0, 0.75);
 }
 
