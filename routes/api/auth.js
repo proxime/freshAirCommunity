@@ -134,4 +134,71 @@ router.post('/login', [
     }
 });
 
+// @route   POST api/auth/change/email
+// @desc    change user email
+// @access  Private
+router.post('/change/email', [auth, [
+    check('email', 'Podaj prawidłowy adres E-mail').isEmail(),
+]], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() })
+    }
+
+    const { email } = req.body;
+
+    try {
+        const user = await User.findById(req.user.id).select('-password');
+
+        const emailExist = await User.findOne({ email });
+        if (emailExist) {
+            if (email === user.email) return res.json(user);
+            return res.status(400).json({ errors: [{ msg: 'Podany E-mail jest już zajęty', param: 'email' }] });
+        }
+
+        user.email = email;
+        await user.save();
+
+        res.json(user);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
+// @route   POST api/auth/change/password
+// @desc    change user password
+// @access  Private
+router.post('/change/password', [auth, [
+    check('password', 'Wprowadź hasło').exists(),
+    check('password2', 'Hasło musi posiadać 6 do 16 znaków').isLength({ min: 6, max: 16 })
+]], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() })
+    }
+
+    const { password, password2 } = req.body;
+
+    try {
+        const user = await User.findById(req.user.id);
+
+        const isMath = await bcrypt.compare(password, user.password);
+        if (!isMath) {
+            return res.status(400).json({ errors: [{ msg: 'Wprowadziłeś błędnie aktualne hasło', param: 'password' }] });
+        }
+
+        const salt = await bcrypt.genSalt(10);
+
+        user.password = await bcrypt.hash(password2, salt);
+
+        await user.save();
+
+        res.json({ alerts: [{ msg: 'Hasło zostało zmienione', param: 'successPassword' }] });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
 module.exports = router;

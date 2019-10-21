@@ -1,9 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 
 import a0 from '../../images/avatars/0.jpg';
+import a1 from '../../images/avatars/1.jpg';
 
 const icons = [
-    a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0,
+    a0, a1, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0,
 ]
 
 const ProfileIcons = ({ setIconsWindowH, setOpenIconWindow }) => {

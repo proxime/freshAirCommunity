@@ -1,4 +1,4 @@
-import { REGISTER_USER, AUTH_ERROR, REGISTER_FAIL, USER_LOADED, LOGIN_SUCCESS, LOGOUT, } from "../actions/types";
+import { REGISTER_USER, AUTH_ERROR, REGISTER_FAIL, USER_LOADED, LOGIN_SUCCESS, LOGOUT, CHANGE_EMAIL, } from "../actions/types";
 
 const initialState = {
     token: localStorage.getItem('token'),
@@ -12,6 +12,7 @@ export default function (state = initialState, action) {
 
     switch (type) {
         case USER_LOADED:
+        case CHANGE_EMAIL:
             return {
                 ...state,
                 isAuthenticated: true,

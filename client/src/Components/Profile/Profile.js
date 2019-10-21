@@ -18,8 +18,6 @@ const Profile = ({ auth }) => {
     if (!auth.loading && !auth.isAuthenticated) return <Redirect to='/auth/login' />
     if (auth.loading) return <h1>Ładowanie</h1>
 
-    console.log(iconsWindowH)
-
     return (
         <>
             <ProfileNavbar />

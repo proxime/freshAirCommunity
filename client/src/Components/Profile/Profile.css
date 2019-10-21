@@ -223,10 +223,28 @@
 .edit-profile-data form label {
   display: flex;
   flex-direction: column;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.edit-profille-password span {
+  position: absolute;
+  top: 95%;
+  color: red;
+  font-size: 1.2rem;
+  left: 0;
+}
+
+.edit-profile-data form label span {
+  position: absolute;
+  top: 90%;
+  color: red;
+  font-size: 1.2rem;
+  left: 0;
 }
 
 .edit-profille-password {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
