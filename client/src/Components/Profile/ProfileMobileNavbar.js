@@ -1,32 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { logout } from './../../actions/auth';
 import { connect } from 'react-redux';
+import { logout } from '../../actions/auth';
 
-const ProfileNavbar = ({ logout }) => {
-    const [minNav, setMinNav] = useState(true);
-
+const ProfileMobileNavbar = ({ logout }) => {
     return (
-        <div className={minNav ? "profile-navbar min" : "profile-navbar"}>
+        <div className="profile-navbar-mobile">
             <ul>
                 <li>
-                    <div className="profile-navbar-slide-icon-container" onClick={() => setMinNav(!minNav)}>
-                        <div className="profile-navbar-slide-icon">
-                            {minNav ? (
-                                <i className="fas fa-chevron-right"></i>
-                            ) : (
-                                    <i className="fas fa-chevron-left"></i>
-                                )}
-                        </div>
-                    </div>
-                </li>
-                <li>
                     <NavLink exact to="/profile" activeClassName="active">
-                        <div className="profile-navbar-icon">
+                        <div className="profile-navbar-mobile-icon">
                             <i className="far fa-user"></i>
                         </div>
-                        <p>Moje Konto</p>
                     </NavLink>
                 </li>
                 <li>
@@ -34,7 +20,6 @@ const ProfileNavbar = ({ logout }) => {
                         <div className="profile-navbar-icon">
                             <i className="far fa-edit"></i>
                         </div>
-                        <p>Edytuj Konto</p>
                     </NavLink>
                 </li>
                 <li>
@@ -42,7 +27,6 @@ const ProfileNavbar = ({ logout }) => {
                         <div className="profile-navbar-icon">
                             <i className="far fa-star"></i>
                         </div>
-                        <p>Lubiane Miasta</p>
                     </NavLink>
                 </li>
                 <li>
@@ -50,15 +34,13 @@ const ProfileNavbar = ({ logout }) => {
                         <div className="profile-navbar-icon">
                             <i className="far fa-clipboard"></i>
                         </div>
-                        <p>Moja Aktywność</p>
                     </NavLink>
                 </li>
                 <li>
-                    <div className="profile-navbar-logout" onClick={() => logout()}>
+                    <div className="profile-navbar-mobile-logout" onClick={() => logout()}>
                         <div className="profile-navbar-icon">
                             <i className="fas fa-sign-out-alt"></i>
                         </div>
-                        <p>Wyloguj</p>
                     </div>
                 </li>
             </ul>
@@ -66,8 +48,8 @@ const ProfileNavbar = ({ logout }) => {
     );
 }
 
-ProfileNavbar.propTypes = {
+ProfileMobileNavbar.propTypes = {
     logout: PropTypes.func.isRequired,
 }
 
-export default connect(null, { logout })(ProfileNavbar);
+export default connect(null, { logout })(ProfileMobileNavbar);
