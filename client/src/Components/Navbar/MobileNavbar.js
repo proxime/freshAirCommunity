@@ -6,8 +6,6 @@ import { connect } from 'react-redux';
 const MobileNavbar = ({ auth }) => {
     const [menuActive, setMenuActive] = useState(false);
 
-    console.log(auth.isAuthenticated)
-
     return (
         <>
             <div className="mobile-nav-btn" onClick={() => setMenuActive(!menuActive)}>

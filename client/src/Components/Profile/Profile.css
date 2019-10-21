@@ -122,10 +122,11 @@
 }
 
 .profile-container {
-  padding: 60px 120px;
+  padding: 120px 120px 60px;
   background-color: #f8f8f8;
   position: relative;
   min-height: 100vh;
+  height: 100%;
 }
 
 .profile-backrond {
@@ -153,10 +154,6 @@
     rgba(248, 248, 248, 1) 0%,
     rgba(248, 248, 248, 0) 100%
   );
-}
-
-.profile {
-  padding: 30px;
 }
 
 .profile-title {
@@ -190,6 +187,7 @@
   background-position: center;
   background-size: cover;
   margin-bottom: 10px;
+  position: relative;
 }
 
 .edit-profile-image h2 {
@@ -263,6 +261,138 @@
   outline: none;
 }
 
+.edit-profile-image-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 50px;
+  height: 50px;
+  background-color: #0aaefb;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.3rem;
+  transition: background-color 0.3s ease;
+}
+
+.edit-profile-image-btn:hover {
+  background-color: #1aa4e4;
+}
+
+.setting-buttons button.settings-save {
+  background: linear-gradient(
+    180deg,
+    rgba(140, 218, 255, 1) 0%,
+    rgba(0, 149, 219, 1) 100%
+  );
+  color: white;
+}
+
+.setting-buttons button.settings-delete {
+  background: linear-gradient(
+    360deg,
+    rgba(210, 210, 210, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.settings-delete:hover,
+.settings-save:hover {
+  opacity: 0.8;
+}
+
+.select-profile-icon {
+  position: absolute;
+  width: 720px;
+  background-color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 150px;
+  z-index: 40;
+  padding: 10px;
+}
+
+.select-profile-icon h2 {
+  font-size: 3rem;
+  font-weight: 400;
+  text-align: center;
+  padding: 10px;
+}
+
+.select-profile-icons {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px;
+}
+
+.select-profile-icon-item {
+  width: 120px;
+  height: 120px;
+  margin: 8px;
+  background-color: black;
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 0 1px 0 black;
+}
+
+.select-profile-icon-item.active {
+  box-shadow: 0 0 1px 3px #1aa4e4;
+}
+
+.select-icon-pop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 30;
+}
+
+.select-profile-icons-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 20px 10px;
+}
+
+.select-profile-icons-buttons button {
+  width: 150px;
+  padding: 5px 0;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.select-profile-icons-buttons button:first-child {
+  background: linear-gradient(
+    180deg,
+    rgba(140, 218, 255, 1) 0%,
+    rgba(0, 149, 219, 1) 100%
+  );
+  color: white;
+}
+
+.select-profile-icons-buttons button:last-child {
+  background: linear-gradient(
+    360deg,
+    rgba(210, 210, 210, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.select-profile-icons-buttons button:hover {
+  opacity: 0.7;
+}
+
 @media (max-width: 1240px) {
   .edit-profile {
     flex-direction: column;
@@ -281,7 +411,7 @@
     display: none;
   }
   .profile-container {
-    padding: 110px 20px 60px;
+    padding: 130px 20px 60px;
   }
   .profile-backrond {
     width: 60%;
@@ -296,6 +426,28 @@
   }
 }
 
+@media (max-width: 800px) {
+  .select-profile-icon {
+    width: 500px;
+  }
+
+  .select-profile-icon-item {
+    margin: 5px;
+    width: 82.8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .select-profile-icon {
+    width: 400px;
+  }
+
+  .select-profile-icon-item {
+    margin: 5px;
+    width: 81px;
+  }
+}
+
 @media (max-width: 500px) {
   .profile-navbar-mobile a,
   .profile-navbar-mobile-logout {
@@ -303,7 +455,7 @@
     font-size: 2.5rem;
   }
   .profile-backrond {
-    width: 80%;
+    width: 100%;
   }
   .edit-profile-data form {
     width: 300px;
@@ -314,5 +466,13 @@
   }
   .edit-profile-image h2 {
     font-size: 2.8rem;
+  }
+  .select-profile-icon {
+    width: 320px;
+  }
+
+  .select-profile-icon-item {
+    margin: 5px;
+    width: 84.6px;
   }
 }
