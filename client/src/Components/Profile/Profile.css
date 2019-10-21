@@ -247,6 +247,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
+  padding-top: 30px;
 }
 
 .setting-buttons button {

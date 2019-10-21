@@ -24,7 +24,7 @@ const Settings = () => {
                                 E-mail
                                 <input type="text" name="email" id="" placeholder="E-mail" />
                             </label>
-                            <p onClick={() => setChangePassword(!changePassword)}>Zmień Hasło</p>
+                            <p onClick={() => setChangePassword(!changePassword)}>{changePassword ? "Nie Zmieniaj Hasła" : "Zmień Hasło"}</p>
                             {changePassword && (
                                 <div className="edit-profille-password">
                                     Hasło
