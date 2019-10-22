@@ -5,9 +5,7 @@ import { changeEmail, changeMyPassword } from '../../../actions/auth';
 import { setAlert, clearAlerts, deleteAlert } from '../../../actions/alert';
 import SettingsIcons from '../SettingsIcons';
 
-import a0 from '../../../images/avatars/0.jpg';
-
-const Settings = ({ user, setIconsWindowH, changeEmail, setAlert, alert, clearAlerts, changeMyPassword, deleteAlert }) => {
+const Settings = ({ user, setIconsWindowH, changeEmail, setAlert, alert, clearAlerts, changeMyPassword, deleteAlert, usedAvatar }) => {
     const [changePassword, setChangePassword] = useState(false);
     const [formData, setFormData] = useState({
         email: user.email,
@@ -68,7 +66,7 @@ const Settings = ({ user, setIconsWindowH, changeEmail, setAlert, alert, clearAl
             <h1 className="profile-title">Edytuj Konto</h1>
             <div className="edit-profile">
                 <div className="edit-profile-image">
-                    <div className="edit-profile-image-container" style={{ backgroundImage: `url(${a0})` }}>
+                    <div className="edit-profile-image-container" style={{ backgroundImage: `url(${usedAvatar})` }}>
                         <div className="edit-profile-image-btn" onClick={() => setOpenIconWindow(true)}>
                             <i className="fas fa-pencil-alt"></i>
                         </div>
@@ -118,7 +116,8 @@ Settings.propTypes = {
 
 const mapStateToProps = state => ({
     user: state.auth.user,
-    alert: state.alert
+    alert: state.alert,
+    usedAvatar: state.avatars.used,
 })
 
 export default connect(mapStateToProps, { changeEmail, setAlert, clearAlerts, changeMyPassword, deleteAlert })(Settings);

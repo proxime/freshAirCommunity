@@ -4,9 +4,7 @@ import { logout } from '../../../actions/auth';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 
-import a0 from '../../../images/avatars/0.jpg';
-
-const Home = ({ user, logout }) => {
+const Home = ({ user, logout, usedAvatar }) => {
     useEffect(() => {
         return () => {
             window.scrollTo(0, 0);
@@ -19,7 +17,7 @@ const Home = ({ user, logout }) => {
             <div className="my-profile">
                 <div className="my-profile-square">
                     <div className="my-profile-image-container">
-                        <div className="my-profile-image" style={{ backgroundImage: `url(${a0}` }}></div>
+                        <div className="my-profile-image" style={{ backgroundImage: `url(${usedAvatar}` }}></div>
                     </div>
                     <h1>{user.login}</h1>
                     <h2>{user.email}</h2>
@@ -48,6 +46,7 @@ const Home = ({ user, logout }) => {
 
 const mapStateToProps = state => ({
     user: state.auth.user,
+    usedAvatar: state.avatars.used,
 });
 
 export default connect(mapStateToProps, { logout })(Home);

@@ -10,9 +10,7 @@ import Settings from './ProfilePages/Settings';
 import Likes from './ProfilePages/Likes';
 import Activity from './ProfilePages/Activity';
 
-import a0 from '../../images/avatars/0.jpg';
-
-const Profile = ({ auth }) => {
+const Profile = ({ auth, usedAvatar }) => {
     const [iconsWindowH, setIconsWindowH] = useState(0);
 
     if (!auth.loading && !auth.isAuthenticated) return <Redirect to='/auth/login' />
@@ -23,7 +21,7 @@ const Profile = ({ auth }) => {
             <ProfileNavbar />
             <ProfileMobileNavbar />
             <div className="profile-container" style={iconsWindowH ? { height: iconsWindowH } : null} >
-                <div className="profile-backrond" style={{ backgroundImage: `url(${a0})` }}></div>
+                <div className="profile-backrond" style={{ backgroundImage: `url(${usedAvatar})` }}></div>
                 <Switch>
                     <Route exact path="/profile" component={Home} />
                     <Route exact path="/profile/edit" render={(props) => <Settings {...props} setIconsWindowH={(height) => setIconsWindowH(height)} />} />
@@ -41,6 +39,7 @@ Profile.propTypes = {
 
 const mapStateToProps = state => ({
     auth: state.auth,
+    usedAvatar: state.avatars.used,
 })
 
 export default connect(mapStateToProps)(Profile);

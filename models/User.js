@@ -18,6 +18,11 @@ const UserSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now,
+    },
+    avatar: {
+        type: Number,
+        required: true,
+        default: 0,
     }
 });
 

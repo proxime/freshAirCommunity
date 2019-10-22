@@ -1,15 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { changeAvatar } from '../../actions/auth';
 
-import a0 from '../../images/avatars/0.jpg';
-import a1 from '../../images/avatars/1.jpg';
-
-const icons = [
-    a0, a1, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0, a0,
-]
-
-const ProfileIcons = ({ setIconsWindowH, setOpenIconWindow }) => {
+const ProfileIcons = ({ setIconsWindowH, setOpenIconWindow, avatars: { avatars, usedAvatar }, user, changeAvatar }) => {
     const iconsEl = useRef(null);
-    const [activeIcon, setActiveIcon] = useState(0);
+    const [activeIcon, setActiveIcon] = useState(user.avatar);
 
     useEffect(() => {
         if (iconsEl.current) {
@@ -28,7 +24,7 @@ const ProfileIcons = ({ setIconsWindowH, setOpenIconWindow }) => {
         setActiveIcon(id);
     }
 
-    const iconItems = icons.map((icon, index) => (
+    const iconItems = avatars.map((icon, index) => (
         <div
             key={index}
             className={activeIcon === index ? "select-profile-icon-item active" : "select-profile-icon-item"}
@@ -39,6 +35,11 @@ const ProfileIcons = ({ setIconsWindowH, setOpenIconWindow }) => {
         </div>
     ))
 
+    const handleChangeAvatar = () => {
+        changeAvatar(activeIcon);
+        setOpenIconWindow(false);
+    }
+
     return (
         <>
             <div className="select-profile-icon" ref={iconsEl}>
@@ -47,7 +48,7 @@ const ProfileIcons = ({ setIconsWindowH, setOpenIconWindow }) => {
                     {iconItems}
                 </div>
                 <div className="select-profile-icons-buttons">
-                    <button>Zapisz</button>
+                    <button onClick={() => handleChangeAvatar()}>Zapisz</button>
                     <button onClick={() => setOpenIconWindow(false)}>Cofnij</button>
                 </div>
             </div>
@@ -56,4 +57,13 @@ const ProfileIcons = ({ setIconsWindowH, setOpenIconWindow }) => {
     );
 }
 
-export default ProfileIcons;
+ProfileIcons.propTypes = {
+    changeAvatar: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = state => ({
+    avatars: state.avatars,
+    user: state.auth.user
+})
+
+export default connect(mapStateToProps, { changeAvatar })(ProfileIcons);

@@ -15,3 +15,4 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGOUT = 'LOGOUT';
 export const CHANGE_EMAIL = 'CHANGE_EMAIL';
+export const GET_AVATAR = 'GET_AVATAR';

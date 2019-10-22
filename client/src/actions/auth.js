@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { AUTH_ERROR, REGISTER_FAIL, USER_LOADED, REGISTER_USER, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, CHANGE_EMAIL } from './types';
+import { AUTH_ERROR, REGISTER_FAIL, USER_LOADED, REGISTER_USER, LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT, CHANGE_EMAIL, GET_AVATAR } from './types';
 import setAuthToken from '../utils/setAuthToken';
 import { setAlert } from './alert';
 
@@ -14,6 +14,13 @@ export const getUser = () => async dispatch => {
         dispatch({
             type: USER_LOADED,
             payload: res.data
+        });
+
+        console.log(res.data)
+
+        dispatch({
+            type: GET_AVATAR,
+            payload: res.data.avatar
         });
     } catch (err) {
         dispatch({
@@ -123,6 +130,8 @@ export const changeEmail = email => async dispatch => {
             type: CHANGE_EMAIL,
             payload: res.data,
         });
+
+        dispatch(getUser());
     } catch (err) {
         const errors = err.response.data.errors;
 
@@ -147,6 +156,33 @@ export const changeMyPassword = (password, password2) => async dispatch => {
 
     try {
         const res = await axios.post('/api/auth/change/password', body, config);
+
+        res.data.alerts.forEach(alert => dispatch(setAlert(alert)));
+
+        dispatch(getUser());
+    } catch (err) {
+        const errors = err.response.data.errors;
+
+        if (errors) {
+            errors.forEach(error => dispatch(setAlert(error)));
+        }
+    }
+}
+
+export const changeAvatar = avatar => async dispatch => {
+
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    const body = JSON.stringify({
+        avatar
+    });
+
+    try {
+        const res = await axios.post('/api/auth/change/avatar', body, config);
 
         res.data.alerts.forEach(alert => dispatch(setAlert(alert)));
 
