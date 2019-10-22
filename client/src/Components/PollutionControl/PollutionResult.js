@@ -12,8 +12,8 @@ const PollutionResult = ({ city }) => {
         city.city !== undefined ? (
             <div className="pollution-result">
                 <div className="pollution-result-name">
-                    <h1>{city.city}</h1>
-                    <p>{city.country} {'//'} {city.state}</p>
+                    <h1>{city.pl.miasto ? city.pl.miasto : city.city}</h1>
+                    <p>{city.pl.panstwo ? city.pl.panstwo : city.country} {'//'} {city.pl.stan ? city.pl.stan : city.state}</p>
                 </div>
                 <div className="pollution-result-cards">
                     <Pollution pollution={city.current.pollution} />

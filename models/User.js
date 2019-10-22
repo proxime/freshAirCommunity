@@ -23,7 +23,31 @@ const UserSchema = new mongoose.Schema({
         type: Number,
         required: true,
         default: 0,
-    }
+    },
+    likes: [
+        {
+            city: {
+                type: String
+            },
+            state: {
+                type: String
+            },
+            country: {
+                type: String
+            },
+            pl: {
+                miasto: {
+                    type: String
+                },
+                stan: {
+                    type: String,
+                },
+                panstwo: {
+                    type: String
+                }
+            }
+        }
+    ]
 });
 
 module.exports = User = mongoose.model('user', UserSchema);

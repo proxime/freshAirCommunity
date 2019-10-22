@@ -223,4 +223,55 @@ router.post('/change/avatar', auth, async (req, res) => {
     }
 });
 
+// @route   POST api/auth/likes
+// @desc    like or onlike city
+// @access  Private
+router.post('/likes', [auth, [
+    check('city', 'Podaj miasto').isString(),
+    check('state', 'Podaj stan').isString(),
+    check('country', 'Podaj kraj').isString()
+]], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() })
+    }
+
+    const { city, state, country, pl } = req.body;
+
+    try {
+        const user = await User.findById(req.user.id);
+
+        let usedIndex = -1;
+        const isUsed = user.likes.filter((like, index) => {
+            if (like.city === city && like.state === state && like.country === country) {
+                usedIndex = index;
+                return like;
+            }
+        });
+
+        if (isUsed.length > 0) {
+            user.likes.splice(usedIndex, 1);
+            await user.save();
+
+            return res.json({ alerts: [{ msg: 'Już nie lubisz tego miasta', param: 'cityLikes' }] });
+        }
+
+        const cityLike = {
+            city,
+            state,
+            country,
+            pl
+        }
+
+        user.likes.push(cityLike);
+
+        await user.save();
+
+        res.json({ alerts: [{ msg: 'Polubiono nowe miasto', param: 'cityLikes' }] });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
+
 module.exports = router;

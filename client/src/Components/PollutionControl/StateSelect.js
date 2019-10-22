@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 const StateSelect = ({ onchange, state, states, country }) => {
     const stateList = states.map((item, index) => (
         <option value={item.state} key={index}>
-            {item.state}
+            {item.name}
         </option>
     ))
 

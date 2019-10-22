@@ -5,6 +5,8 @@ const axios = require('axios');
 const translate = require('translate');
 
 const countryTranslate = require('../../utils/translator/countryTranslate');
+const stateTranslate = require('../../utils/translator/stateTranslator');
+const cityTranslate = require('../../utils/translator/cityTranslate');
 
 translate.engine = 'yandex';
 translate.key = 'trnsl.1.1.20191016T230614Z.eea32035de0f7c82.34f0666b7ccd7630fd2332bcebb790b5ebaf547b';
@@ -31,6 +33,8 @@ router.get('/', async (req, res) => {
             }
         });
 
+        transladedCountries.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+
         res.json(transladedCountries);
     } catch (err) {
         console.error(err.message);
@@ -46,33 +50,21 @@ router.post('/states', async (req, res) => {
     const country = req.body.country;
     try {
         const states = await axios.get(`https://api.airvisual.com/v2/states?country=${country}&key=${key}`);
-        // const translatedStates = [];
-        // states.data.data.forEach(async (state, index) => {
-        //     let translated = '';
-        //     if (state.state === 'Lubusz') {
-        //         translated = 'Lubuskie';
-        //     } else if (state.state === 'Mazovia') {
-        //         translated = 'Mazowsze';
-        //     } else if (state.state === 'Silesia') {
-        //         translated = 'Śląsk';
-        //     } else if (state.state === 'Lublin') {
-        //         translated = 'Lubelskie';
-        //     } else {
-        //         translated = await translate(state.state, { from: 'en', to: 'pl' });
-        //     }
 
-        //     console.log(translated)
+        const transladedStates = [];
+        states.data.data.forEach(state => {
+            const translated = stateTranslate(state.state);
+            if (translated) {
+                transladedStates.push({
+                    state: state.state,
+                    name: translated
+                })
+            }
+        });
 
-        //     translatedStates.push({
-        //         state: state.state,
-        //         name: translated
-        //     })
+        transladedStates.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
 
-        //     if (index === states.data.data.length - 1) {
-        //         res.json(translatedStates);
-        //     }
-        // })
-        res.json(states.data.data);
+        res.json(transladedStates);
     } catch (err) {
         if (err.response.status === 400) {
             return res.status(400).json({ msg: "Podane państwo nie jest obsługiwane" });
@@ -91,18 +83,20 @@ router.post('/cities', async (req, res) => {
     try {
         const cities = await axios.get(`https://api.airvisual.com/v2/cities?state=${state}&country=${country}&key=${key}`);
 
-        // const transladedCountries = [];
-        // countries.data.data.forEach(country => {
-        //     const translated = countryTranslate(country.country);
-        //     if (translated) {
-        //         transladedCountries.push({
-        //             country: country.country,
-        //             name: translated
-        //         })
-        //     }
-        // });
+        const transladedCities = [];
+        cities.data.data.forEach(city => {
+            const translated = cityTranslate(city.city);
+            if (translated) {
+                transladedCities.push({
+                    city: city.city,
+                    name: translated
+                })
+            }
+        });
 
-        res.json(cities.data.data);
+        transladedCities.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+
+        res.json(transladedCities);
     } catch (err) {
         if (err.response.status === 400) {
             return res.status(400).json({ msg: "Podane państwo lub stan nie są obsługiwane" });
@@ -120,19 +114,25 @@ router.post('/city', async (req, res) => {
     const { country, state, city } = req.body;
     try {
         const cityRes = await axios.get(`https://api.airvisual.com/v2/city?city=${city}&state=${state}&country=${country}&key=${key}`);
+        const newCity = cityRes.data.data;
+        newCity.pl = {};
 
-        // const transladedCountries = [];
-        // countries.data.data.forEach(country => {
-        //     const translated = countryTranslate(country.country);
-        //     if (translated) {
-        //         transladedCountries.push({
-        //             country: country.country,
-        //             name: translated
-        //         })
-        //     }
-        // });
+        const translatedCountry = countryTranslate(newCity.country);
+        if (translatedCountry) {
+            newCity.pl.panstwo = translatedCountry;
+        }
 
-        res.json(cityRes.data.data);
+        const translatedState = stateTranslate(newCity.state);
+        if (translatedState) {
+            newCity.pl.stan = translatedState;
+        }
+
+        const translatedCity = cityTranslate(newCity.city);
+        if (translatedCity) {
+            newCity.pl.miasto = translatedCity;
+        }
+
+        res.json(newCity);
     } catch (err) {
         if (err.response.status === 404) {
             return res.status(404).json({ msg: "Podane państwo, stan lub miasto nie są obsługiwane" });

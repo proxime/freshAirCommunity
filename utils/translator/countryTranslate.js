@@ -85,7 +85,7 @@ module.exports = (country) => {
         case 'Italy':
             return 'Włochy';
         case 'Ivory Coast':
-            return 'Wybrzeże Kości Słoniowej';
+            return '';
         case 'Japan':
             return 'Japonia';
         case 'Jordan':
