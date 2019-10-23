@@ -1,5 +1,6 @@
 import React from 'react';
 import './News.css';
+import HeadNewsPc from './HeadNewsPc';
 
 const url = 'https://images.wallpaperscraft.com/image/road_marking_bridge_123398_1920x1080.jpg';
 
@@ -7,8 +8,9 @@ const News = () => {
     return (
         <div className="container">
             <div className="head-news">
-                <div className="head-news-container">
-                    <div className="head-news-main">
+                <HeadNewsPc />
+                <div className="head-news-mobile">
+                    <div className="head-news-mobile-main">
                         <div className="head-news-main-image-container">
                             <div className="head-news-main-image" style={{ backgroundImage: `url(${url})` }}></div>
                         </div>
@@ -21,8 +23,8 @@ const News = () => {
                         </div>
                         </div>
                     </div>
-                    <div className="head-news-secondary-container">
-                        <div className="head-news-secondary">
+                    <div className="head-news-mobile-secondary-container">
+                        <div className="head-news-mobile-secondary">
                             <div className="head-news-secondary-image-container">
                                 <div className="head-news-secondary-image" style={{ backgroundImage: `url(${url})` }}></div>
                             </div>
@@ -35,7 +37,7 @@ const News = () => {
                                     </div>
                             </div>
                         </div>
-                        <div className="head-news-secondary">
+                        <div className="head-news-mobile-secondary">
                             <div className="head-news-secondary-image-container">
                                 <div className="head-news-secondary-image" style={{ backgroundImage: `url(${url})` }}></div>
                             </div>
