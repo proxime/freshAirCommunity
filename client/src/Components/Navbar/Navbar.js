@@ -23,8 +23,8 @@ const Navbar = ({ auth }) => {
             <div className="navbar-list-container">
                 <ul className="navbar-list">
                     <li><NavLink exact to="/" activeClassName="active">Strona Główna</NavLink></li>
-                    <li><NavLink exact to="/pollution" activeClassName="active">Zanieczyszczenia</NavLink></li>
-                    <li><NavLink exact to="/forum" activeClassName="active">Forum</NavLink></li>
+                    <li><NavLink exact to="/pollution" activeClassName="active">Indeks Zanieczyszczenia</NavLink></li>
+                    <li><NavLink exact to="/news" activeClassName="active">Aktualności</NavLink></li>
                 </ul>
             </div>
         </nav>

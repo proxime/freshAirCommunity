@@ -143,6 +143,12 @@
   text-decoration: underline;
 }
 
+@media (max-width: 1024px) {
+  .navbar-list li a {
+    padding: 0 5px;
+  }
+}
+
 @media (max-width: 960px) {
   .mobile-nav-btn {
     display: flex;

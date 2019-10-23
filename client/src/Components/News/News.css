@@ -1,0 +1,112 @@
+.head-news {
+  height: 500px;
+  background: linear-gradient(
+    333deg,
+    rgba(0, 108, 159, 1) 0%,
+    rgba(66, 194, 255, 1) 100%
+  );
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.head-news-container {
+  position: relative;
+  width: 1000px;
+  height: 75%;
+}
+
+.head-news-main {
+  position: absolute;
+  height: 100%;
+  width: 700px;
+  background-color: white;
+  top: 0;
+  right: 0;
+  display: flex;
+  box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.head-news-secondary-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.head-news-main-image-container,
+.head-news-secondary-image-container {
+  width: 60%;
+  height: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+.head-news-main-image,
+.head-news-secondary-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.2s ease;
+}
+
+.head-news-secondary {
+  height: 46%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.head-news-secondary:hover .head-news-secondary-image,
+.head-news-main:hover .head-news-main-image {
+  opacity: 0.9;
+}
+
+.head-news-main-text {
+  padding: 25px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.head-news-secondary-text {
+  padding: 12px 7px;
+  display: flex;
+  flex-direction: column;
+}
+
+.head-news-main-title {
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.2;
+  flex-grow: 1;
+}
+
+.head-news-secondary-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+  flex-grow: 1;
+}
+
+.head-news-main-date {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.head-news-secondary-date {
+  font-size: 1rem;
+  font-weight: 700;
+}

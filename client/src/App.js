@@ -6,6 +6,7 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import PollutionControl from './Components/PollutionControl/PollutionControl';
 import Auth from './Components/Authenticate/Auth';
 import Profile from './Components/Profile/Profile';
+import News from './Components/News/News';
 // redux setup
 import { Provider } from 'react-redux';
 import { getUser } from './actions/auth';
@@ -26,6 +27,7 @@ function App() {
             <Route path="/pollution" exact component={PollutionControl} />
             <Route path="/auth" component={Auth} />
             <Route path="/profile" component={Profile} />
+            <Route path="/news" component={News} />
           </Switch>
         </div>
       </Router>

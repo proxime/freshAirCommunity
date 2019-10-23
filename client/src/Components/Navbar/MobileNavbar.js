@@ -14,8 +14,8 @@ const MobileNavbar = ({ auth }) => {
             <div className={menuActive ? 'mobile-nav active' : 'mobile-nav'}>
                 <ul>
                     <li><Link onClick={() => setMenuActive(false)} to="/">Strona Główna</Link></li>
-                    <li><Link onClick={() => setMenuActive(false)} to="/pollution">Zanieczyszczenia</Link></li>
-                    <li><Link onClick={() => setMenuActive(false)} to="#!">Forum</Link></li>
+                    <li><Link onClick={() => setMenuActive(false)} to="/pollution">Indeks Zanieczyszczenia</Link></li>
+                    <li><Link onClick={() => setMenuActive(false)} to="/news">Aktualności</Link></li>
                     {auth.isAuthenticated ? (
                         <li><Link onClick={() => setMenuActive(false)} to="/auth/profile">Mój profil</Link></li>
                     ) : (
