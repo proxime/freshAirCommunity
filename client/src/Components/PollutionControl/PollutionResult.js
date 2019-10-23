@@ -7,10 +7,10 @@ import Wind from './Results/Wind';
 import Pressure from './Results/Pressure';
 import PolutionLike from './PolutionLike';
 
-const PollutionResult = ({ city, user }) => {
+const PollutionResult = ({ city, user, waitingForCity }) => {
 
     return (
-        city.city !== undefined ? (
+        waitingForCity === false && city.city ? (
             <div className="pollution-result">
                 <div className="pollution-result-name">
                     <h1>{city.pl.miasto ? city.pl.miasto : city.city}</h1>
@@ -32,11 +32,13 @@ const PollutionResult = ({ city, user }) => {
 
 PollutionResult.propTypes = {
     city: PropTypes.object.isRequired,
+    waitingForCity: PropTypes.bool,
 }
 
 const mapStateToProps = state => ({
     city: state.data.city,
     user: state.auth.user,
+    waitingForCity: state.data.waitingForCity,
 });
 
 export default connect(mapStateToProps)(PollutionResult);

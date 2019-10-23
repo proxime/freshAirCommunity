@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_COUNTRIES, GET_STATES, GET_CITIES, GET_CITY, DELETE_STATES, DELETE_CITIES } from './types';
+import { GET_COUNTRIES, GET_STATES, GET_CITIES, GET_CITY, DELETE_STATES, DELETE_CITIES, WAITING_FOR_CITY, UPDATE_AFTER_LOAD_CITY } from './types';
 
 // GET countries
 export const getCountries = () => async dispatch => {
@@ -79,6 +79,10 @@ export const getCity = (country, state, city) => async dispatch => {
             city
         });
 
+        dispatch({
+            type: WAITING_FOR_CITY
+        })
+
         const cityRes = await axios.post('/api/data/city', body, config);
 
         dispatch({
@@ -101,6 +105,13 @@ export const deleteStates = () => dispatch => {
 export const deleteCities = () => dispatch => {
     dispatch({
         type: DELETE_CITIES,
+    })
+}
+
+// Update After get city
+export const waitingForUpdate = () => dispatch => {
+    dispatch({
+        type: UPDATE_AFTER_LOAD_CITY,
     })
 }
 

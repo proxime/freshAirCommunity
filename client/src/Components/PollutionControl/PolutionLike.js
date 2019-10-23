@@ -12,8 +12,6 @@ const PolutionLike = ({ likeAndUnlike, likes, city: { country, state, city, pl }
 
     const isLiked = likes.filter(like => like.country === country && like.state === state && like.city === city);
 
-    console.log(isLiked.length > 0)
-
     return (
         <div className="pollution-like" onClick={() => handleLike()}>
             <div className="pollution-like-icon">

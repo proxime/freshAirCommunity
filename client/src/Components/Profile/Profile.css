@@ -490,7 +490,6 @@
   display: flex;
   background-color: rgba(240, 240, 240, 0.6);
   align-items: center;
-  cursor: pointer;
   padding: 5px 10px;
   min-width: 300px;
   position: relative;
@@ -502,6 +501,12 @@
   font-size: 3rem;
   color: rgb(241, 176, 9);
   margin-right: 15px;
+  cursor: pointer;
+}
+
+.likes-item-text {
+  flex-grow: 1;
+  cursor: pointer;
 }
 
 .likes-item-text h1 {
