@@ -12,11 +12,13 @@ const PollutionResult = ({ city, user, waitingForCity }) => {
     return (
         waitingForCity === false && city.city ? (
             <div className="pollution-result">
-                <div className="pollution-result-name">
-                    <h1>{city.pl.miasto ? city.pl.miasto : city.city}</h1>
-                    <p>{city.pl.panstwo ? city.pl.panstwo : city.country} {'//'} {city.pl.stan ? city.pl.stan : city.state}</p>
+                <div className="pollution-result-name-container">
+                    <div className="pollution-result-name">
+                        <h1>{city.pl.miasto ? city.pl.miasto : city.city}</h1>
+                        <p>{city.pl.panstwo ? city.pl.panstwo : city.country} {'//'} {city.pl.stan ? city.pl.stan : city.state}</p>
+                    </div>
+                    {user && <PolutionLike />}
                 </div>
-                {user && <PolutionLike />}
                 <div className="pollution-result-cards">
                     <Pollution pollution={city.current.pollution} />
                     <Weather weather={city.current.weather} />

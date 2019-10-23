@@ -13,12 +13,14 @@ const PolutionLike = ({ likeAndUnlike, likes, city: { country, state, city, pl }
     const isLiked = likes.filter(like => like.country === country && like.state === state && like.city === city);
 
     return (
-        <div className="pollution-like" onClick={() => handleLike()}>
-            <div className="pollution-like-icon">
-                {isLiked.length > 0 ? (<i className="fas fa-star"></i>) : (<i className="far fa-star"></i>)}
-            </div>
-            <div className="pollution-item-text">
-                {isLiked.length > 0 ? "Usuń z ulubionych" : "Dodaj do ulubionych"}
+        <div className="pollution-like-container">
+            <div className="pollution-like" onClick={() => handleLike()}>
+                <div className="pollution-like-icon">
+                    {isLiked.length > 0 ? (<i className="fas fa-star"></i>) : (<i className="far fa-star"></i>)}
+                </div>
+                <div className="pollution-item-text">
+                    {isLiked.length > 0 ? "Usuń z ulubionych" : "Dodaj do ulubionych"}
+                </div>
             </div>
         </div>
     );

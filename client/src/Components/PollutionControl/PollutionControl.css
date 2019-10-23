@@ -87,11 +87,20 @@
 }
 
 .pollution-result {
-  padding: 30px 100px 10px 100px;
+  padding: 30px 50px 10px 50px;
+}
+
+.pollution-result-name-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .pollution-result-name {
   margin-bottom: 10px;
+  max-width: 600px;
+  width: 100%;
 }
 
 .pollution-result-name h1 {
@@ -181,6 +190,11 @@
   box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.5);
 }
 
+.pollution-like-container {
+  max-width: 600px;
+  width: 100%;
+}
+
 .pollution-like {
   display: flex;
   cursor: pointer;
@@ -188,18 +202,21 @@
   width: fit-content;
   box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.5);
   padding: 5px 10px;
-  width: 210px;
+  width: 190px;
+  border-radius: 10px;
+  user-select: none;
 }
 
 .pollution-like-icon {
-  font-size: 3rem;
+  font-size: 2.3rem;
   color: rgb(241, 176, 9);
-  margin-right: 8px;
+  margin-right: 6px;
+  margin-left: 8px;
 }
 
 .pollution-item-text {
-  font-size: 1.7rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 900;
 }
 
 @media (max-width: 1400px) {
@@ -219,7 +236,7 @@
     margin: 0px 0 65px 10px;
   }
   .pollution-result {
-    padding: 30px 20px 10px 20px;
+    padding: 30px 50px 10px 50px;
   }
 }
 
@@ -246,6 +263,12 @@
   }
 }
 
+@media (max-width: 770px) {
+  .pollution-result {
+    padding: 30px 20px 10px 20px;
+  }
+}
+
 @media (max-width: 696px) {
   .pollution-result-cards {
     flex-direction: column;
@@ -264,9 +287,13 @@
   }
   .pollution-result-name p {
     font-size: 1.5rem;
+    text-align: center;
   }
   .pollution-like {
     margin: 0 auto;
+  }
+  .pollution-result-name-container {
+    width: 100%;
   }
 }
 
@@ -297,6 +324,7 @@
   .polution-form-item label {
     font-size: 1.8rem;
   }
+
   .pollution-result-name h1 {
     font-size: 3.5rem;
   }
@@ -304,6 +332,7 @@
     font-size: 1.5rem;
     margin-top: -5px;
     margin-left: 0;
+    text-align: center;
   }
   .pollution-card-desc h1 {
     font-size: 3rem;
