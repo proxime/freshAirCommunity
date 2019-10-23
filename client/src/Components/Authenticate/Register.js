@@ -50,7 +50,7 @@ const Register = ({ registerUser, setAlert, clearAlerts, alert, deleteAlert }) =
             clearAlerts();
             window.scrollTo(0, 0);
         }
-    }, []);
+    }, [clearAlerts]);
 
     return (
         <>

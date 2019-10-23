@@ -26,7 +26,7 @@ const ProfileNavbar = ({ logout }) => {
                         <div className="profile-navbar-icon">
                             <i className="far fa-user"></i>
                         </div>
-                        <p>Moje Konto</p>
+                        <p>Mój Profil</p>
                     </NavLink>
                 </li>
                 <li>

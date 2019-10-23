@@ -480,6 +480,45 @@
   background-color: rgba(224, 224, 224, 0.6);
 }
 
+.likes-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.likes-item {
+  display: flex;
+  background-color: rgba(240, 240, 240, 0.6);
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 10px;
+  min-width: 300px;
+  position: relative;
+  z-index: 10;
+  margin: 15px;
+}
+
+.likes-item-icon {
+  font-size: 3rem;
+  color: rgb(241, 176, 9);
+  margin-right: 15px;
+}
+
+.likes-item-text h1 {
+  font-size: 2.5rem;
+}
+
+.likes-item-text p {
+  font-size: 1.5rem;
+  margin-top: -5px;
+}
+
+@media (max-width: 1286px) {
+  .likes-container {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 1240px) {
   .edit-profile {
     flex-direction: column;

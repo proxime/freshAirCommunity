@@ -44,7 +44,7 @@ const Login = ({ alert, loginUser, setAlert, clearAlerts, deleteAlert }) => {
             clearAlerts();
             window.scrollTo(0, 0);
         }
-    }, []);
+    }, [clearAlerts]);
 
     return (
         <>

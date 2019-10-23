@@ -78,7 +78,7 @@ const Weather = ({ weather }) => {
                 setIcon(null);
                 break;
         }
-    });
+    }, [setIcon]);
 
     return (
         <div className="pollution-result-card">

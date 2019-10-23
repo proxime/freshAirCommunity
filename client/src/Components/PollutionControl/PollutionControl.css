@@ -91,7 +91,7 @@
 }
 
 .pollution-result-name {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .pollution-result-name h1 {
@@ -110,6 +110,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 28px;
 }
 
 .pollution-result-card {
@@ -180,6 +181,27 @@
   box-shadow: 0 0 15px -2px rgba(0, 0, 0, 0.5);
 }
 
+.pollution-like {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  width: fit-content;
+  box-shadow: 0 0 15px 0px rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  width: 210px;
+}
+
+.pollution-like-icon {
+  font-size: 3rem;
+  color: rgb(241, 176, 9);
+  margin-right: 8px;
+}
+
+.pollution-item-text {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
 @media (max-width: 1400px) {
   .pollution-result {
     padding: 30px 40px 10px 40px;
@@ -242,6 +264,9 @@
   }
   .pollution-result-name p {
     font-size: 1.5rem;
+  }
+  .pollution-like {
+    margin: 0 auto;
   }
 }
 

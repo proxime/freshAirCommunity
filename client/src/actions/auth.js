@@ -16,8 +16,6 @@ export const getUser = () => async dispatch => {
             payload: res.data
         });
 
-        console.log(res.data)
-
         dispatch({
             type: GET_AVATAR,
             payload: res.data.avatar
@@ -183,6 +181,36 @@ export const changeAvatar = avatar => async dispatch => {
 
     try {
         const res = await axios.post('/api/auth/change/avatar', body, config);
+
+        res.data.alerts.forEach(alert => dispatch(setAlert(alert)));
+
+        dispatch(getUser());
+    } catch (err) {
+        const errors = err.response.data.errors;
+
+        if (errors) {
+            errors.forEach(error => dispatch(setAlert(error)));
+        }
+    }
+}
+
+export const likeAndUnlike = (country, state, city, pl) => async dispatch => {
+
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    const body = JSON.stringify({
+        country,
+        state,
+        city,
+        pl
+    });
+
+    try {
+        const res = await axios.post('/api/auth/likes', body, config);
 
         res.data.alerts.forEach(alert => dispatch(setAlert(alert)));
 

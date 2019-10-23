@@ -31,7 +31,6 @@ const CitiesSelect = ({ cities, onchange, city, state }) => {
                         </select>
                     </>
                 )}
-            )
         </>
     );
 }

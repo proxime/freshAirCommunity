@@ -83,7 +83,7 @@ module.exports = (city) => {
         case "Plock":
             return "Płock";
         case "Warsaw":
-            return "Warsszawa";
+            return "Warszawa";
         case "Zyrardow":
             return "Żyrardów";
         case "Kedzierzyn-Kozle":

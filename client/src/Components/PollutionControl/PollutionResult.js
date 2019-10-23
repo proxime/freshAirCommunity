@@ -5,8 +5,9 @@ import Weather from './Results/Weather';
 import Pollution from './Results/Pollution';
 import Wind from './Results/Wind';
 import Pressure from './Results/Pressure';
+import PolutionLike from './PolutionLike';
 
-const PollutionResult = ({ city }) => {
+const PollutionResult = ({ city, user }) => {
 
     return (
         city.city !== undefined ? (
@@ -15,6 +16,7 @@ const PollutionResult = ({ city }) => {
                     <h1>{city.pl.miasto ? city.pl.miasto : city.city}</h1>
                     <p>{city.pl.panstwo ? city.pl.panstwo : city.country} {'//'} {city.pl.stan ? city.pl.stan : city.state}</p>
                 </div>
+                {user && <PolutionLike />}
                 <div className="pollution-result-cards">
                     <Pollution pollution={city.current.pollution} />
                     <Weather weather={city.current.weather} />
@@ -33,7 +35,8 @@ PollutionResult.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    city: state.data.city
+    city: state.data.city,
+    user: state.auth.user,
 });
 
 export default connect(mapStateToProps)(PollutionResult);

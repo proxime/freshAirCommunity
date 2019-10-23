@@ -18,7 +18,7 @@ const ProfileIcons = ({ setIconsWindowH, setOpenIconWindow, avatars: { avatars, 
         return function () {
             setIconsWindowH(0);
         }
-    }, [])
+    }, [setIconsWindowH])
 
     const setActive = (id) => {
         setActiveIcon(id);

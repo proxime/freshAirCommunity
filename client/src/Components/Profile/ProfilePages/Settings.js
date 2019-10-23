@@ -47,7 +47,7 @@ const Settings = ({ user, setIconsWindowH, changeEmail, setAlert, alert, clearAl
             clearAlerts();
             window.scrollTo(0, 0);
         }
-    }, [])
+    }, [clearAlerts])
 
     const emailAlert = alert.filter(item => item.param === 'email');
     const passwordAlert = alert.filter(item => item.param === 'password');
