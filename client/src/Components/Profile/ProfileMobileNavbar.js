@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../../actions/auth';
 
-const ProfileMobileNavbar = ({ logout }) => {
+const ProfileMobileNavbar = ({ logout, userType }) => {
     return (
         <div className="profile-navbar-mobile">
             <ul>
@@ -36,6 +36,15 @@ const ProfileMobileNavbar = ({ logout }) => {
                         </div>
                     </NavLink>
                 </li>
+                {userType === 'redactor' && (
+                    <li>
+                        <NavLink exact to="/profile/addNews" activeClassName="active">
+                            <div className="profile-navbar-icon">
+                                <i className="fas fa-plus"></i>
+                            </div>
+                        </NavLink>
+                    </li>
+                )}
                 <li>
                     <div className="profile-navbar-mobile-logout" onClick={() => logout()}>
                         <div className="profile-navbar-icon">
@@ -50,6 +59,11 @@ const ProfileMobileNavbar = ({ logout }) => {
 
 ProfileMobileNavbar.propTypes = {
     logout: PropTypes.func.isRequired,
+    userType: PropTypes.string,
 }
 
-export default connect(null, { logout })(ProfileMobileNavbar);
+const mapStateToProp = state => ({
+    userType: state.auth.user.type,
+});
+
+export default connect(mapStateToProp, { logout })(ProfileMobileNavbar);

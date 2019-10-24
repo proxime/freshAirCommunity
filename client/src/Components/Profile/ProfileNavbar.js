@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { logout } from './../../actions/auth';
 import { connect } from 'react-redux';
 
-const ProfileNavbar = ({ logout }) => {
+const ProfileNavbar = ({ logout, userType }) => {
     const [minNav, setMinNav] = useState(true);
 
     return (
@@ -53,6 +53,16 @@ const ProfileNavbar = ({ logout }) => {
                         <p>Moja Aktywność</p>
                     </NavLink>
                 </li>
+                {userType === 'redactor' && (
+                    <li>
+                        <NavLink exact to="/profile/addNews" activeClassName="active">
+                            <div className="profile-navbar-icon">
+                                <i className="fas fa-plus"></i>
+                            </div>
+                            <p>Dodaj News</p>
+                        </NavLink>
+                    </li>
+                )}
                 <li>
                     <div className="profile-navbar-logout" onClick={() => logout()}>
                         <div className="profile-navbar-icon">
@@ -68,6 +78,11 @@ const ProfileNavbar = ({ logout }) => {
 
 ProfileNavbar.propTypes = {
     logout: PropTypes.func.isRequired,
+    userType: PropTypes.string,
 }
 
-export default connect(null, { logout })(ProfileNavbar);
+const mapStateToProp = state => ({
+    userType: state.auth.user.type,
+});
+
+export default connect(mapStateToProp, { logout })(ProfileNavbar);

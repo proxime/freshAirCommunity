@@ -518,6 +518,127 @@
   margin-top: -5px;
 }
 
+.profile-news-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 30px auto;
+  position: relative;
+  z-index: 20;
+}
+
+.profile-news-container form {
+  display: block;
+  width: 100%;
+}
+
+.profile-news-title p,
+.profile-news-image p,
+.profile-news-text p {
+  font-size: 1.7rem;
+  padding-left: 15px;
+}
+
+.profile-news-image {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.profile-news-image .news-error {
+  top: 100%;
+}
+
+.profile-news-title input,
+.profile-news-image input {
+  width: 100%;
+  font-size: 2rem;
+  padding: 10px 20px;
+  outline: none;
+  border-radius: 20px;
+  border: none;
+}
+
+.profile-news-title input {
+  margin-bottom: 30px;
+}
+
+.profile-news-image-button {
+  width: 160px;
+  padding: 8px 0;
+  cursor: pointer;
+  border-radius: 15px;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 5px 0;
+  color: black;
+  outline: none;
+  background: linear-gradient(
+    360deg,
+    rgba(210, 210, 210, 1) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-news-image-button:hover {
+  opacity: 0.8;
+}
+
+.profile-news-image-container {
+  width: 100%;
+  padding-top: 55%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 30px;
+}
+
+.profile-news-text textarea {
+  width: 100%;
+  padding: 15px;
+  outline: none;
+  height: 500px;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  resize: none;
+}
+
+.profile-news-text .news-error {
+  top: calc(100% - 22px);
+}
+
+.profile-news-container form button {
+  width: 160px;
+  padding: 8px 0;
+  cursor: pointer;
+  border-radius: 15px;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 5px 0;
+  outline: none;
+  background: linear-gradient(
+    180deg,
+    rgba(140, 218, 255, 1) 0%,
+    rgba(0, 149, 219, 1) 100%
+  );
+  color: white;
+  text-align: center;
+}
+
+.profile-news-container label {
+  position: relative;
+}
+
+.news-error {
+  position: absolute;
+  top: calc(100% + 13px);
+  color: red;
+  font-size: 1.1rem;
+}
+
 @media (max-width: 1286px) {
   .likes-container {
     justify-content: center;

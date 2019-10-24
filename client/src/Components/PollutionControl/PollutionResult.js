@@ -6,6 +6,7 @@ import Pollution from './Results/Pollution';
 import Wind from './Results/Wind';
 import Pressure from './Results/Pressure';
 import PolutionLike from './PolutionLike';
+import Loading from '../Loading';
 
 const PollutionResult = ({ city, user, waitingForCity }) => {
 
@@ -27,7 +28,7 @@ const PollutionResult = ({ city, user, waitingForCity }) => {
                 </div>
             </div>
         ) : (
-                <h1>Ładowanie...</h1>
+                <Loading />
             )
     );
 }

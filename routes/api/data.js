@@ -2,14 +2,10 @@ const express = require('express');
 const router = express.Router();
 const config = require('config');
 const axios = require('axios');
-const translate = require('translate');
 
 const countryTranslate = require('../../utils/translator/countryTranslate');
 const stateTranslate = require('../../utils/translator/stateTranslator');
 const cityTranslate = require('../../utils/translator/cityTranslate');
-
-translate.engine = 'yandex';
-translate.key = 'trnsl.1.1.20191016T230614Z.eea32035de0f7c82.34f0666b7ccd7630fd2332bcebb790b5ebaf547b';
 
 // @route   GET api/data
 // @desc    Get countries list

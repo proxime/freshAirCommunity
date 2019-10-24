@@ -1,17 +1,16 @@
 import React from 'react';
+import Moment from 'react-moment';
 
-const url = 'https://images.wallpaperscraft.com/image/road_marking_bridge_123398_1920x1080.jpg';
-
-const NewsItem = () => {
+const NewsItem = ({ title, image, date }) => {
     return (
         <div className="news-item">
-            <div className="news-item-image" style={{ backgroundImage: `url(${url})` }}></div>
+            <div className="news-item-image" style={{ backgroundImage: `url(${image})` }}></div>
             <div className="news-item-text">
                 <div className="news-item-title">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro ad asperiores esse laudantium.
+                    {title}
                 </div>
                 <div className="news-item-date">
-                    20.12.2019 12:00
+                    <Moment format="DD.MM.YYYY HH:mm">{date}</Moment>
                 </div>
             </div>
         </div>

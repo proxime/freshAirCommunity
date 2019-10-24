@@ -9,6 +9,7 @@ import Home from './ProfilePages/Home';
 import Settings from './ProfilePages/Settings';
 import Likes from './ProfilePages/Likes';
 import Activity from './ProfilePages/Activity';
+import AddNews from './ProfilePages/AddNews';
 
 const Profile = ({ auth, usedAvatar }) => {
     const [iconsWindowH, setIconsWindowH] = useState(0);
@@ -27,6 +28,7 @@ const Profile = ({ auth, usedAvatar }) => {
                     <Route exact path="/profile/edit" render={(props) => <Settings {...props} setIconsWindowH={(height) => setIconsWindowH(height)} />} />
                     <Route exact path="/profile/likes" component={Likes} />
                     <Route exact path="/profile/activity" component={Activity} />
+                    <Route exact path="/profile/addNews" component={AddNews} />
                 </Switch>
             </div>
         </>

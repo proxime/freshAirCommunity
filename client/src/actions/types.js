@@ -18,3 +18,5 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGOUT = 'LOGOUT';
 export const CHANGE_EMAIL = 'CHANGE_EMAIL';
 export const GET_AVATAR = 'GET_AVATAR';
+export const GET_NEWS = 'GET_NEWS';
+export const ADD_NEWS = 'ADD_NEWS';

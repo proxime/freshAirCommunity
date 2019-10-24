@@ -24,6 +24,11 @@ const UserSchema = new mongoose.Schema({
         required: true,
         default: 0,
     },
+    type: {
+        type: String,
+        required: true,
+        default: 'normal',
+    },
     likes: [
         {
             city: {
