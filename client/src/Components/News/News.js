@@ -10,11 +10,17 @@ import { getAllNews } from '../../actions/news';
 const News = ({ news, getAllNews }) => {
     useEffect(() => {
         getAllNews();
+
+        return () => {
+            window.scrollTo(0, 0);
+        }
     }, [])
+
 
     const newsItems = news.news.map(item => (
         <NewsItem
             key={item._id}
+            id={item._id}
             title={item.title}
             image={item.image}
             date={item.date}

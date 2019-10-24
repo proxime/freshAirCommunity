@@ -11,7 +11,7 @@ const CitiesSelect = ({ cities, onchange, city, state }) => {
 
     return (
         <>
-            {state === "select" ? (
+            {state === "select" || citiesList.length === 0 ? (
                 <>
                     <label htmlFor="city">Miasto</label>
                     <select name="city" id="city" onChange={e => onchange(e)} value={city} disabled>

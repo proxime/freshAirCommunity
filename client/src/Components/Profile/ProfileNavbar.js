@@ -42,7 +42,7 @@ const ProfileNavbar = ({ logout, userType }) => {
                         <div className="profile-navbar-icon">
                             <i className="far fa-star"></i>
                         </div>
-                        <p>Lubiane Miasta</p>
+                        <p>Obserwowane Miasta</p>
                     </NavLink>
                 </li>
                 <li>

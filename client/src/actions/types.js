@@ -19,4 +19,7 @@ export const LOGOUT = 'LOGOUT';
 export const CHANGE_EMAIL = 'CHANGE_EMAIL';
 export const GET_AVATAR = 'GET_AVATAR';
 export const GET_NEWS = 'GET_NEWS';
+export const GET_SINGLE_NEWS = 'GET_SINGLE_NEWS';
+export const FAILED_SINGLE_NEWS = 'FAILED_SINGLE_NEWS';
+export const WAITING_SINGLE_NEWS = 'WAITING_SINGLE_NEWS';
 export const ADD_NEWS = 'ADD_NEWS';

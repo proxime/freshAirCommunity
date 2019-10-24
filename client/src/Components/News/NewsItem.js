@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 
-const NewsItem = ({ title, image, date }) => {
+const NewsItem = ({ title, image, date, id }) => {
     return (
-        <div className="news-item">
+        <Link to={`/news/${id}`} className="news-item">
             <div className="news-item-image" style={{ backgroundImage: `url(${image})` }}></div>
             <div className="news-item-text">
                 <div className="news-item-title">
@@ -13,7 +14,7 @@ const NewsItem = ({ title, image, date }) => {
                     <Moment format="DD.MM.YYYY HH:mm">{date}</Moment>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 }
 

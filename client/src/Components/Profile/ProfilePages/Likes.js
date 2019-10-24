@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { likeAndUnlike } from '../../../actions/auth';
 import { getCity } from '../../../actions/data';
@@ -40,7 +40,7 @@ const Likes = ({ likes, likeAndUnlike, getCity, history }) => {
 
     return (
         <>
-            <h1 className="profile-title">Lubiane Miasta</h1>
+            <h1 className="profile-title">Obserwowane Miasta</h1>
             <div className="likes-container">
                 {myLikes}
             </div>

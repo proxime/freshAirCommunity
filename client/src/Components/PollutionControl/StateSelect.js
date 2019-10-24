@@ -10,7 +10,7 @@ const StateSelect = ({ onchange, state, states, country }) => {
     ))
 
     return (
-        country === "select" ? (
+        country === "select" || stateList.length === 0 ? (
             <>
                 <label htmlFor="state">Stan / Województwo</label>
                 <select name="state" id="state" onChange={e => onchange(e)} value={state} disabled>

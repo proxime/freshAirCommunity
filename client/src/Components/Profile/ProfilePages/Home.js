@@ -28,7 +28,7 @@ const Home = ({ user, logout, usedAvatar }) => {
                         <Link to="/profile/edit">Edytuj Konto</Link>
                     </div>
                     <div className="my-profile-function-item">
-                        <Link to="/profile/likes">Lubiane Miasta</Link>
+                        <Link to="/profile/likes">Obserwowane Miasta</Link>
                     </div>
                     <div className="my-profile-function-item">
                         <Link to="/profile/activity">Moja Aktywność</Link>

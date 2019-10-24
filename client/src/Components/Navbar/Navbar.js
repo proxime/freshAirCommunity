@@ -24,7 +24,7 @@ const Navbar = ({ auth }) => {
                 <ul className="navbar-list">
                     <li><NavLink exact to="/" activeClassName="active">Strona Główna</NavLink></li>
                     <li><NavLink exact to="/pollution" activeClassName="active">Indeks Zanieczyszczenia</NavLink></li>
-                    <li><NavLink exact to="/news" activeClassName="active">Aktualności</NavLink></li>
+                    <li><NavLink to="/news" activeClassName="active">Aktualności</NavLink></li>
                 </ul>
             </div>
         </nav>

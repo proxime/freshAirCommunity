@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 
@@ -7,7 +8,7 @@ const HeadNewsMobile = ({ headNews }) => {
         <>
             {headNews.length > 2 && (
                 <div className="head-news-mobile">
-                    <div className="head-news-mobile-main">
+                    <Link to={`/news/${headNews[0]._id}`} className="head-news-mobile-main">
                         <div className="head-news-main-image-container">
                             <div className="head-news-main-image" style={{ backgroundImage: `url(${headNews[0].image})` }}></div>
                         </div>
@@ -19,9 +20,9 @@ const HeadNewsMobile = ({ headNews }) => {
                                 <Moment format="DD.MM.YYYY HH:mm">{headNews[0].date}</Moment>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                     <div className="head-news-mobile-secondary-container">
-                        <div className="head-news-mobile-secondary">
+                        <Link to={`/news/${headNews[1]._id}`} className="head-news-mobile-secondary">
                             <div className="head-news-secondary-image-container">
                                 <div className="head-news-secondary-image" style={{ backgroundImage: `url(${headNews[1].image})` }}></div>
                             </div>
@@ -33,8 +34,8 @@ const HeadNewsMobile = ({ headNews }) => {
                                     <Moment format="DD.MM.YYYY HH:mm">{headNews[1].date}</Moment>
                                 </div>
                             </div>
-                        </div>
-                        <div className="head-news-mobile-secondary">
+                        </Link>
+                        <Link to={`/news/${headNews[2]._id}`} className="head-news-mobile-secondary">
                             <div className="head-news-secondary-image-container">
                                 <div className="head-news-secondary-image" style={{ backgroundImage: `url(${headNews[2].image})` }}></div>
                             </div>
@@ -46,7 +47,7 @@ const HeadNewsMobile = ({ headNews }) => {
                                     <Moment format="DD.MM.YYYY HH:mm">{headNews[2].date}</Moment>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             )}

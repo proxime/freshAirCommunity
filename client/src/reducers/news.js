@@ -1,8 +1,10 @@
-import { GET_NEWS, ADD_NEWS } from "../actions/types";
+import { GET_NEWS, ADD_NEWS, FAILED_SINGLE_NEWS, GET_SINGLE_NEWS, WAITING_SINGLE_NEWS } from "../actions/types";
 
 const initialState = {
     news: [],
     headNews: [],
+    actuallNews: null,
+    waitingNews: false,
 }
 
 export default function (state = initialState, action) {
@@ -19,6 +21,23 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 news: [payload, ...state.news]
+            }
+        case GET_SINGLE_NEWS:
+            return {
+                ...state,
+                actuallNews: payload,
+                waitingNews: false,
+            }
+        case FAILED_SINGLE_NEWS:
+            return {
+                ...state,
+                actuallNews: null,
+                waitingNews: false,
+            }
+        case WAITING_SINGLE_NEWS:
+            return {
+                ...state,
+                waitingNews: true,
             }
         default:
             return state;

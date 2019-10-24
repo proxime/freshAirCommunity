@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -12,6 +12,13 @@ const AddNews = ({ user, addNews, setAlert, alert, clearAlerts, deleteAlert }) =
         loadedImage: '',
         text: '',
     });
+
+    useEffect(() => {
+        return () => {
+            clearAlerts();
+            window.scrollTo(0, 0);
+        }
+    }, [clearAlerts])
 
     if (user.type !== 'redactor') return <Redirect to="/profile" />
 

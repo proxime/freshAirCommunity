@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { GET_NEWS, ADD_NEWS } from './types';
+import { GET_NEWS, ADD_NEWS, GET_SINGLE_NEWS, FAILED_SINGLE_NEWS, WAITING_SINGLE_NEWS } from './types';
 
 export const getAllNews = () => async dispatch => {
     try {
@@ -47,5 +47,25 @@ export const addNews = (title, image, text) => async dispatch => {
         if (errors) {
             errors.forEach(error => dispatch(setAlert(error)));
         }
+    }
+}
+
+export const getSilngleNews = id => async dispatch => {
+    try {
+        dispatch({
+            type: WAITING_SINGLE_NEWS
+        })
+
+        const res = await axios.get(`/api/news/${id}`);
+
+        dispatch({
+            type: GET_SINGLE_NEWS,
+            payload: res.data
+        })
+
+    } catch (err) {
+        dispatch({
+            type: FAILED_SINGLE_NEWS
+        })
     }
 }
