@@ -48,9 +48,10 @@ router.post('/', [auth, [
 // @access  Public
 router.get('/:id', async (req, res) => {
     try {
-        const news = await News.findById(req.params.id);
+        const news = await News.findById(req.params.id).populate('comments.user');
         news.author = await User.findById(news.author).select('-password -likes');
         if (!news) return res.status(404).json({ msg: 'News not found' });
+        news.comments.reverse();
         res.json(news);
     } catch (err) {
         console.error(err.message);
@@ -82,7 +83,7 @@ router.delete('/:id', auth, async (req, res) => {
 // @access  Public
 router.get('/', async (req, res) => {
     try {
-        const news = await News.find().populate('author').sort('-date');;
+        const news = await News.find().sort('-date');
         res.json(news);
     } catch (err) {
         console.error(err.message);
@@ -90,7 +91,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// @route   POST api/news
+// @route   POST api/news/:id/like
 // @desc    Add new News
 // @access  Private
 router.post('/:id/like', [auth, [
@@ -122,7 +123,8 @@ router.post('/:id/like', [auth, [
 
         if (isUsed.length > 0) {
             await news.save();
-            return res.json(news);
+            const returnNews = await News.findById(req.params.id).populate('comments.user');
+            return res.json(returnNews);
         }
 
         news.likes.push({
@@ -131,8 +133,78 @@ router.post('/:id/like', [auth, [
         })
 
         await news.save();
+        const returnNews = await News.findById(req.params.id).populate('comments.user');
+        res.json(returnNews);
+    } catch (err) {
+        if (err.kind === "ObjectId") return res.status(404).json({ msg: 'News not found' });
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+})
 
-        res.json(news);
+// @route   POST api/news/:id/comment
+// @desc    Add new Comment
+// @access  Private
+router.post('/:id/comment', [auth, [
+    check('text', "Wprowadź tekst").isLength({ min: 1 }),
+]], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() })
+    }
+    console.log('asd')
+
+    const text = req.body.text;
+
+    try {
+        const news = await News.findById(req.params.id);
+        if (!news) return res.status(404).json({ msg: 'News not found' });
+
+        news.comments.push({
+            user: req.user.id,
+            text
+        })
+
+        await news.save();
+        const returnNews = await News.findById(req.params.id).populate('comments.user');
+        returnNews.comments.reverse();
+
+        res.json(returnNews);
+    } catch (err) {
+        if (err.kind === "ObjectId") return res.status(404).json({ msg: 'News not found' });
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+})
+
+// @route   DELETE api/news/:id/:comment
+// @desc    Delete comment
+// @access  Private
+router.delete('/:id/:comment', auth, async (req, res) => {
+    try {
+        const news = await News.findById(req.params.id);
+        if (!news) return res.status(404).json({ msg: 'News not found' });
+        const user = await User.findById(req.user.id);
+
+        let isAllowed = true;
+        const filteredComments = news.comments.filter(comment => {
+            if (String(comment.id) === req.params.comment) {
+                if (user.type === 'redactor') {
+                    return null;
+                } else if (String(comment.user) !== req.user.id) {
+                    isAllowed = false;
+                }
+            } else {
+                return comment;
+            }
+        })
+
+        if (!isAllowed) return res.status(400).json({ msg: 'Nie możesz usunąć tego komentarza' });
+        if (news.comments.length === filteredComments.length) return res.status(404).json({ msg: 'Nie znaleziono komentarza' });
+        news.comments = filteredComments;
+        await news.save();
+        const returnNews = await News.findById(req.params.id).populate('comments.user');
+        res.json(returnNews);
     } catch (err) {
         if (err.kind === "ObjectId") return res.status(404).json({ msg: 'News not found' });
         console.error(err.message);

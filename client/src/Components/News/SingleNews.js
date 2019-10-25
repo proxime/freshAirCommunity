@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import Loading from '../Loading';
+import NewsComment from './NewsComment';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSilngleNews, getAllNews, addLike, deleteNews } from '../../actions/news';
@@ -105,6 +106,7 @@ const SingleNews = ({ match, news, getSilngleNews, getAllNews, addLike, auth, se
 
                                         </div>
                                     </div>
+
                                     <div className="single-news-reactions">
                                         <div onClick={() => handleAddLike(newsId, 0)} className="single-news-reaction">
                                             <img src={e0} alt="" />
@@ -128,6 +130,8 @@ const SingleNews = ({ match, news, getSilngleNews, getAllNews, addLike, auth, se
                                         </div>
                                         {emotesAlert.length > 0 && <p className="emote-warrning">{emotesAlert[0].msg}</p>}
                                     </div>
+
+                                    <NewsComment newsId={newsId} />
                                 </>
                             ) : (
                                     <h1>404</h1>

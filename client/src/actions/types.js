@@ -24,3 +24,5 @@ export const FAILED_SINGLE_NEWS = 'FAILED_SINGLE_NEWS';
 export const WAITING_SINGLE_NEWS = 'WAITING_SINGLE_NEWS';
 export const ADD_NEWS = 'ADD_NEWS';
 export const ADD_LIKE = 'ADD_LIKE';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const DELETE_COMMENT = 'DELETE_COMMENT';

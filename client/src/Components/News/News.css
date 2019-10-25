@@ -338,6 +338,92 @@
   opacity: 0.8;
 }
 
+.comments-section {
+  width: 100%;
+  background-color: #f5f5f5;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding: 40px 30px;
+}
+
+.comment-form {
+  margin-bottom: 30px;
+}
+
+.comment-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-form form p {
+  font-size: 1.5rem;
+}
+
+.comment-form form textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  resize: none;
+  height: 80px;
+}
+
+.comment-form form button {
+  align-self: flex-start;
+  width: 160px;
+  padding: 8px 0;
+  cursor: pointer;
+  border-radius: 15px;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 5px 0;
+  color: black;
+  outline: none;
+  background: linear-gradient(
+    180deg,
+    rgba(140, 218, 255, 1) 0%,
+    rgba(0, 149, 219, 1) 100%
+  );
+  color: white;
+}
+
+.comment {
+  display: flex;
+  border-bottom: 1px solid black;
+  padding: 25px 0;
+}
+
+.comment-author {
+  width: 50px;
+  flex-shrink: 0;
+  margin-right: 25px;
+}
+
+.comment-author-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  background-color: #fff;
+}
+
+.comment-text {
+  padding: 10px;
+  font-size: 1.5rem;
+}
+
+.delete-comment {
+  padding: 5px 10px;
+  background-color: red;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
 @media (max-width: 1240px) {
   .last-news {
     display: none;

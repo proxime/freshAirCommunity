@@ -33,6 +33,18 @@ const NewsSchema = new mongoose.Schema({
                 reqired: true,
             }
         }
+    ],
+    comments: [
+        {
+            user: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'user'
+            },
+            text: {
+                type: String,
+                reqired: true,
+            }
+        }
     ]
 });
 
