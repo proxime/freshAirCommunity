@@ -50,7 +50,7 @@ const ProfileNavbar = ({ logout, userType }) => {
                         <div className="profile-navbar-icon">
                             <i className="far fa-clipboard"></i>
                         </div>
-                        <p>Moja Aktywność</p>
+                        <p>Moje Reakcje</p>
                     </NavLink>
                 </li>
                 {userType === 'redactor' && (

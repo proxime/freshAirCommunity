@@ -422,12 +422,31 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-top: 15px;
+  width: fit-content;
+}
+
+.delete-comment:hover {
+  opacity: 0.8;
 }
 
 .comments-title {
   font-size: 3rem;
   font-weight: 600;
   margin-bottom: 30px;
+}
+
+.login-comment {
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+.login-comment a {
+  color: #1473e6;
+  text-decoration: none;
+}
+
+.login-comment a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 1240px) {

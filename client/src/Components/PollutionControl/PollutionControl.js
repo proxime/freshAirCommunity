@@ -93,7 +93,7 @@ const PollutionControl = ({ getStates, getCountries, initData, data, city, getCi
         const { country, state } = formData;
         if (!country || country === "select") return;
         if (!state || state === "select") return;
-        if (!city || city === "select") return;
+        if (!formData.city || formData.city === "select") return;
         if (formData.city === city.city) return;
         setDisabledBtn(true);
         setTimeout(() => setDisabledBtn(false), 2000);

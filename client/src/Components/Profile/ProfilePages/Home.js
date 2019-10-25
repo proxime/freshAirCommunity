@@ -31,7 +31,7 @@ const Home = ({ user, logout, usedAvatar }) => {
                         <Link to="/profile/likes">Obserwowane Miasta</Link>
                     </div>
                     <div className="my-profile-function-item">
-                        <Link to="/profile/activity">Moja Aktywność</Link>
+                        <Link to="/profile/activity">Moje Reakcje</Link>
                     </div>
                     <div className="my-profile-function-item">
                         <div className="my-profile-function-logout" onClick={() => logout()}>

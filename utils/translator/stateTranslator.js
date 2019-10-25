@@ -30,6 +30,14 @@ module.exports = (state) => {
             return "Warmia i Mazury";
         case "West Pomerania":
             return "Zachodnio-pomorskie";
+        case "England":
+            return "Anglia";
+        case "Northern Ireland":
+            return "Irlandia Północna";
+        case "Scotland":
+            return "Szkocja";
+        case "Wales":
+            return "Walia";
         default:
             return state;
     }

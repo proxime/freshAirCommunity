@@ -15,7 +15,7 @@ const Profile = ({ auth, usedAvatar }) => {
     const [iconsWindowH, setIconsWindowH] = useState(0);
 
     if (!auth.loading && !auth.isAuthenticated) return <Redirect to='/auth/login' />
-    if (auth.loading || !auth.user) return <h1>Ładowanie</h1>
+    if (auth.loading || !auth.user) return <div className="profile-container" style={iconsWindowH ? { height: iconsWindowH } : null} ></div>
 
     return (
         <>

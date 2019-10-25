@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { addComment, deleteComment } from '../../actions/news';
 
@@ -35,7 +36,7 @@ const NewsComment = ({ newsId, actuallNews, addComment, avatars, auth, deleteCom
     return (
         <div className="comments-section">
             <div className="comments-title">Komentarze</div>
-            {auth.isAuthenticated && (
+            {auth.isAuthenticated ? (
                 <div className="comment-form">
                     <form onSubmit={e => handleAddComment(e)}>
                         <label>
@@ -45,7 +46,11 @@ const NewsComment = ({ newsId, actuallNews, addComment, avatars, auth, deleteCom
                         <button>Dodaj Komentarz</button>
                     </form>
                 </div>
-            )}
+            ) : (
+                    <h1 className="login-comment">
+                        <Link to="/auth/login">Zaloguj się</Link> aby dodać komentarz
+                </h1>
+                )}
             <div className="comments">
                 {comments}
             </div>

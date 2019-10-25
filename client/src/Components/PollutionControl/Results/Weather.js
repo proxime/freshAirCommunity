@@ -17,6 +17,28 @@ const Weather = ({ weather }) => {
     const [weatherNumber, setWheatherNumber] = useState(null);
     const [icon, setIcon] = useState(null);
     const [weatherText, setWeatherText] = useState(null);
+    const colors = [
+        '#0b459a',
+        '#185daf',
+        '#1bbeec',
+        '#50c5d0',
+        '#eeeeee',
+        '#8dc73a',
+        '#5fb433',
+        '#ece63f',
+        '#f69f1c',
+        '#f66f1c',
+        '#f25916',
+        '#eb2414',
+        '#db2314',
+        '#f47075',
+        '#fbbbbb',
+        '#78429a',
+        '#aeaeae',
+    ];
+    const [actuallColor, setColor] = useState(colors[0]);
+
+
     if (weatherNumber !== weather.ic) setWheatherNumber(weather.ic);
     useEffect(() => {
         switch (weatherNumber) {
@@ -62,12 +84,12 @@ const Weather = ({ weather }) => {
             case "11d":
             case "11n":
                 setIcon(w11d);
-                setWeatherText('Burza');
+                setWeatherText('Burzowo');
                 break;
             case "13d":
             case "13n":
                 setIcon(w13d);
-                setWeatherText('Śnieg');
+                setWeatherText('Śnieżnie');
                 break;
             case "50d":
             case "50n":
@@ -80,6 +102,59 @@ const Weather = ({ weather }) => {
         }
     }, [setIcon]);
 
+    useEffect(() => {
+        if (weather.tp < -20) {
+            setColor(colors[0]);
+        }
+        else if (weather.tp < -11) {
+            setColor(colors[1]);
+        }
+        else if (weather.tp < -5) {
+            setColor(colors[2]);
+        }
+        else if (weather.tp < -2) {
+            setColor(colors[3]);
+        }
+        else if (weather.tp < 1) {
+            setColor(colors[4]);
+        }
+        else if (weather.tp < 4) {
+            setColor(colors[5]);
+        }
+        else if (weather.tp < 8) {
+            setColor(colors[6]);
+        }
+        else if (weather.tp < 12) {
+            setColor(colors[7]);
+        }
+        else if (weather.tp < 16) {
+            setColor(colors[8]);
+        }
+        else if (weather.tp < 20) {
+            setColor(colors[9]);
+        }
+        else if (weather.tp < 24) {
+            setColor(colors[10]);
+        }
+        else if (weather.tp < 28) {
+            setColor(colors[11]);
+        }
+        else if (weather.tp < 32) {
+            setColor(colors[12]);
+        }
+        else if (weather.tp < 36) {
+            setColor(colors[13]);
+        }
+        else if (weather.tp < 40) {
+            setColor(colors[14]);
+        }
+        else if (weather.tp < 35) {
+            setColor(colors[15]);
+        } else {
+            setColor(colors[16]);
+        }
+    }, [setColor]);
+
     return (
         <div className="pollution-result-card">
             <div className="pollution-card-desc">
@@ -90,7 +165,7 @@ const Weather = ({ weather }) => {
                 <img src={icon} alt="" />
             </div>
             <div className="pollution-card-color-container">
-                <div className="pollution-card-color"></div>
+                <div className="pollution-card-color" style={{ backgroundColor: actuallColor }}></div>
             </div>
             <div className="pollution-card-name">
                 Pogoda

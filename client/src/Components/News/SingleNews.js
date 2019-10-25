@@ -134,7 +134,7 @@ const SingleNews = ({ match, news, getSilngleNews, getAllNews, addLike, auth, se
                                     <NewsComment newsId={newsId} />
                                 </>
                             ) : (
-                                    <h1>404</h1>
+                                    <h1>Nie odnaleziono Newsa</h1>
                                 )
                         )}
                 </div>
