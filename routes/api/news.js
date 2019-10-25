@@ -59,6 +59,24 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+// @route   DELETE api/news/:id
+// @desc    delete news
+// @access  Private
+router.delete('/:id', auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id);
+        if (user.type !== "redactor") return res.status(400).json({ msg: 'Nie posiadasz odpowiednich uprawnień!' });
+        const news = await News.findById(req.params.id);
+        if (!news) return res.status(404).json({ msg: 'News not found' });
+        await news.delete();
+        res.json({ msg: 'News został usunięty' });
+    } catch (err) {
+        console.error(err.message);
+        if (err.kind === "ObjectId") return res.status(404).json({ msg: 'News not found' });
+        res.status(500).send('Server Error');
+    }
+});
+
 // @route   GET api/news/
 // @desc    get all news
 // @access  Public

@@ -31,7 +31,8 @@
 
 .dashboard-section h1,
 .dashboard-substances h1,
-.dashboard-cities-container h1 {
+.dashboard-cities-container h1,
+.dashboard-news-section h1 {
   display: flex;
   position: relative;
   font-size: 3rem;
@@ -183,6 +184,19 @@
   position: absolute;
 }
 
+.dashboard-news-section {
+  background-color: #f5f5f5;
+  padding: 50px 0 20px;
+}
+
+.dashboard-news-section > h1 {
+  padding: 0 15%;
+}
+
+.dashboard-news-section .news-container {
+  padding-top: 20px;
+}
+
 @media (max-width: 1400px) {
   .dashboard-smog-desc {
     padding: 50px;
@@ -225,6 +239,14 @@
   .dashboard-cities-item {
     padding: 15px;
     padding-bottom: 0;
+  }
+
+  .dashboard-section {
+    padding: 70px 40px;
+  }
+
+  .dashboard-news-section > h1 {
+    padding: 0 40px;
   }
 }
 
@@ -275,10 +297,6 @@
     background-position: -60% 25%;
   }
 
-  .dashboard-section {
-    padding: 70px 40px;
-  }
-
   .dashboard-substances-belt {
     flex-wrap: wrap;
   }
@@ -317,6 +335,14 @@
   .dashboard-cities-item-circle-shadow {
     padding: 5px;
     border-radius: 0;
+  }
+
+  .dashboard-news-section > h1 {
+    font-size: 2.4rem;
+  }
+
+  .dashboard-news-section .news-container {
+    padding: 0;
   }
 }
 

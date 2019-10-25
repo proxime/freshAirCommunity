@@ -2,9 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 import Loading from '../Loading';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getSilngleNews, getAllNews, addLike } from '../../actions/news';
+import { getSilngleNews, getAllNews, addLike, deleteNews } from '../../actions/news';
 import { setAlert, clearAlerts } from '../../actions/alert';
 
 import e0 from '../../images/emotes/0.png';
@@ -13,7 +13,7 @@ import e2 from '../../images/emotes/2.png';
 import e3 from '../../images/emotes/3.png';
 import e4 from '../../images/emotes/4.png';
 
-const SingleNews = ({ match, news, getSilngleNews, getAllNews, addLike, auth, setAlert, clearAlerts, alert }) => {
+const SingleNews = ({ match, news, getSilngleNews, getAllNews, addLike, auth, setAlert, clearAlerts, alert, deleteNews, history }) => {
     const containerEl = useRef(null);
     const [newsId, setNewsId] = useState(match.params.id);
 
@@ -93,6 +93,11 @@ const SingleNews = ({ match, news, getSilngleNews, getAllNews, addLike, auth, se
                             news.actuallNews ? (
                                 <>
                                     <div className="single-news-wrapper">
+                                        {auth.isAuthenticated && auth.user.type === 'redactor' && (
+                                            <div className="deleteNewsBtn" onClick={() => deleteNews(newsId, history)}>
+                                                Usuń News
+                                        </div>
+                                        )}
                                         <h1 className="single-news-title">{news.actuallNews.title}</h1>
                                         <p className="single-news-date"><Moment format="DD.MM.YYYY HH:mm">{news.actuallNews.date}</Moment></p>
                                         <div className="single-news-image" style={{ backgroundImage: `url(${news.actuallNews.image})` }}></div>
@@ -155,4 +160,4 @@ const mapStateToProps = state => ({
     alert: state.alert
 })
 
-export default connect(mapStateToProps, { getSilngleNews, getAllNews, addLike, setAlert, clearAlerts })(SingleNews);
+export default connect(mapStateToProps, { getSilngleNews, getAllNews, addLike, setAlert, clearAlerts, deleteNews })(withRouter(SingleNews));

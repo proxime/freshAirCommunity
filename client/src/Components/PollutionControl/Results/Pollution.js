@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import icon from '../../../images/icons/pollution.png';
+
 const Pollution = ({ pollution }) => {
     const [sqiText, setAqiText] = useState(null);
     const [color, setColor] = useState();
@@ -50,7 +52,7 @@ const Pollution = ({ pollution }) => {
                 <p>{sqiText}</p>
             </div>
             <div className="pollution-card-image">
-
+                <img src={icon} alt="" />
             </div>
             <div className="pollution-card-color-container">
                 <div className="pollution-card-color" style={{ backgroundColor: color }}></div>

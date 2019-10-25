@@ -125,6 +125,7 @@
 .pollution-result-card {
   box-shadow: 0 0 25px -2px rgba(0, 0, 0, 0.5);
   padding: 10px 30px;
+  padding-right: 10px;
   border-radius: 30px;
   display: flex;
   align-items: center;
@@ -146,14 +147,16 @@
 }
 
 .pollution-card-image {
-  width: 70px;
-  height: 70px;
-  margin-left: 30px;
+  width: 60px;
+  height: 60px;
+  margin-left: 40px;
   margin-right: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .pollution-card-image img {
-  width: 100%;
+  height: 100%;
 }
 
 .pollution-card-color-container {

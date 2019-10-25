@@ -70,6 +70,24 @@ export const getSilngleNews = id => async dispatch => {
     }
 }
 
+export const deleteNews = (id, history) => async dispatch => {
+    try {
+        dispatch({
+            type: WAITING_SINGLE_NEWS
+        })
+
+        await axios.delete(`/api/news/${id}`);
+        history.push('/news');
+
+    } catch (err) {
+        const errors = err.response.data.errors;
+
+        if (errors) {
+            errors.forEach(error => dispatch(setAlert(error)));
+        }
+    }
+}
+
 export const addLike = (id, emote) => async dispatch => {
     const config = {
         headers: {

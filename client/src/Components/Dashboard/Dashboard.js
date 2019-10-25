@@ -3,7 +3,13 @@ import './Dashboard.css';
 import DashboardHead from './DashboardHead';
 import DashboardSubstance from './DashboardSubstance';
 import DashboardHowTo from './DashboardHowTo';
+import DashboardNews from './DashboardNews';
+
 import cracowImg from '../../images/cities/cracow.jpg';
+import shanghaiImg from '../../images/cities/Shanghai.jpg';
+import delhiImg from '../../images/cities/Delhi.jpg';
+import hanoiImg from '../../images/cities/Hanoi.jpg';
+import kathamanduImg from '../../images/cities/Kathamandu.jpg';
 
 const Dashboard = () => {
     useEffect(() => {
@@ -15,6 +21,7 @@ const Dashboard = () => {
     return (
         <div className="container">
             <DashboardHead />
+            <DashboardNews />
             <div className="dashboard-section">
                 <h1>
                     <div className="section-before"></div>
@@ -30,17 +37,25 @@ const Dashboard = () => {
                 <h1>
                     <div className="section-before"></div>
                     <div>
-                        <span className="bold">Najbardziej zanieczyszone miasta </span>na świecie
+                        Miasta o najwyższym <span className="bold">Indeksie zanieczyszczenia powietrza</span>
                     </div>
                 </h1>
                 <div className="dashboard-cities">
                     <div className="dashboard-cities-item">
                         <div className="dashboard-cities-item-circle-shadow">
-                            <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${cracowImg}')` }}>
+                            <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${shanghaiImg}')` }}>
                             </div>
                         </div>
-                        <h2>Kraków</h2>
-                        <p>Polska</p>
+                        <h2>Shanghai</h2>
+                        <p>Chiny</p>
+                    </div>
+                    <div className="dashboard-cities-item">
+                        <div className="dashboard-cities-item-circle-shadow">
+                            <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${delhiImg}')` }}>
+                            </div>
+                        </div>
+                        <h2>Delhi</h2>
+                        <p>Indie</p>
                     </div>
                     <div className="dashboard-cities-item">
                         <div className="dashboard-cities-item-circle-shadow">
@@ -52,27 +67,19 @@ const Dashboard = () => {
                     </div>
                     <div className="dashboard-cities-item">
                         <div className="dashboard-cities-item-circle-shadow">
-                            <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${cracowImg}')` }}>
+                            <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${hanoiImg}')` }}>
                             </div>
                         </div>
-                        <h2>Kraków</h2>
-                        <p>Polska</p>
+                        <h2>Hanoi</h2>
+                        <p>Wietnam</p>
                     </div>
                     <div className="dashboard-cities-item">
                         <div className="dashboard-cities-item-circle-shadow">
-                            <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${cracowImg}')` }}>
+                            <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${kathamanduImg}')` }}>
                             </div>
                         </div>
-                        <h2>Kraków</h2>
-                        <p>Polska</p>
-                    </div>
-                    <div className="dashboard-cities-item">
-                        <div className="dashboard-cities-item-circle-shadow">
-                            <div className="dashboard-cities-item-circle" style={{ backgroundImage: `url('${cracowImg}')` }}>
-                            </div>
-                        </div>
-                        <h2>Kraków</h2>
-                        <p>Polska</p>
+                        <h2>Kathmandu</h2>
+                        <p>Nepal</p>
                     </div>
                 </div>
             </div>
