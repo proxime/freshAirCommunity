@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { GET_NEWS, ADD_NEWS, GET_SINGLE_NEWS, FAILED_SINGLE_NEWS, WAITING_SINGLE_NEWS } from './types';
+import { GET_NEWS, ADD_NEWS, GET_SINGLE_NEWS, FAILED_SINGLE_NEWS, WAITING_SINGLE_NEWS, ADD_LIKE } from './types';
 
 export const getAllNews = () => async dispatch => {
     try {
@@ -67,5 +67,33 @@ export const getSilngleNews = id => async dispatch => {
         dispatch({
             type: FAILED_SINGLE_NEWS
         })
+    }
+}
+
+export const addLike = (id, emote) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    const body = JSON.stringify({
+        emote
+    });
+
+    try {
+        const res = await axios.post(`/api/news/${id}/like`, body, config);
+
+        dispatch({
+            type: ADD_LIKE,
+            payload: res.data
+        })
+
+    } catch (err) {
+        const errors = err.response.data.errors;
+
+        if (errors) {
+            errors.forEach(error => dispatch(setAlert(error)));
+        }
     }
 }

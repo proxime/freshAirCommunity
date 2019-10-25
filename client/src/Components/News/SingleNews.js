@@ -4,9 +4,15 @@ import Moment from 'react-moment';
 import Loading from '../Loading';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getSilngleNews, getAllNews } from '../../actions/news';
+import { getSilngleNews, getAllNews, addLike } from '../../actions/news';
 
-const SingleNews = ({ match, news, getSilngleNews, getAllNews }) => {
+import e0 from '../../images/emotes/0.png';
+import e1 from '../../images/emotes/1.png';
+import e2 from '../../images/emotes/2.png';
+import e3 from '../../images/emotes/3.png';
+import e4 from '../../images/emotes/4.png';
+
+const SingleNews = ({ match, news, getSilngleNews, getAllNews, addLike }) => {
     const containerEl = useRef(null);
     const [newsId, setNewsId] = useState(match.params.id);
 
@@ -53,6 +59,13 @@ const SingleNews = ({ match, news, getSilngleNews, getAllNews }) => {
         </li>
     ));
 
+    const likes = [0, 0, 0, 0, 0];
+
+    if (news.actuallNews) {
+        news.actuallNews.likes.forEach(like => {
+            likes[like.emote]++;
+        })
+    }
 
     return (
         <div className="container">
@@ -68,6 +81,28 @@ const SingleNews = ({ match, news, getSilngleNews, getAllNews }) => {
                                     <div className="single-news-image" style={{ backgroundImage: `url(${news.actuallNews.image})` }}></div>
                                     <div className="single-news-content" ref={containerEl}>
 
+                                    </div>
+                                    <div className="single-news-reactions">
+                                        <div onClick={() => addLike(newsId, 0)} className="single-news-reaction">
+                                            <img src={e0} alt="" />
+                                            <p>{likes[0]}</p>
+                                        </div>
+                                        <div onClick={() => addLike(newsId, 1)} className="single-news-reaction">
+                                            <img src={e1} alt="" />
+                                            <p>{likes[1]}</p>
+                                        </div>
+                                        <div onClick={() => addLike(newsId, 2)} className="single-news-reaction">
+                                            <img src={e2} alt="" />
+                                            <p>{likes[2]}</p>
+                                        </div>
+                                        <div onClick={() => addLike(newsId, 3)} className="single-news-reaction">
+                                            <img src={e3} alt="" />
+                                            <p>{likes[3]}</p>
+                                        </div>
+                                        <div onClick={() => addLike(newsId, 4)} className="single-news-reaction">
+                                            <img src={e4} alt="" />
+                                            <p>{likes[4]}</p>
+                                        </div>
                                     </div>
                                 </>
                             ) : (
@@ -90,10 +125,11 @@ const SingleNews = ({ match, news, getSilngleNews, getAllNews }) => {
 SingleNews.ptpTypes = {
     getSilngleNews: PropTypes.func.isRequired,
     getAllNews: PropTypes.func.isRequired,
+    addLike: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
     news: state.news,
 })
 
-export default connect(mapStateToProps, { getSilngleNews, getAllNews })(SingleNews);
+export default connect(mapStateToProps, { getSilngleNews, getAllNews, addLike })(SingleNews);

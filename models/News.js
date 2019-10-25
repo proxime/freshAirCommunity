@@ -22,6 +22,18 @@ const NewsSchema = new mongoose.Schema({
         default: Date.now,
         required: true,
     },
+    likes: [
+        {
+            user: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'user'
+            },
+            emote: {
+                type: Number,
+                reqired: true,
+            }
+        }
+    ]
 });
 
 module.exports = News = mongoose.model('news', NewsSchema);

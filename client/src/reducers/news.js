@@ -1,4 +1,4 @@
-import { GET_NEWS, ADD_NEWS, FAILED_SINGLE_NEWS, GET_SINGLE_NEWS, WAITING_SINGLE_NEWS } from "../actions/types";
+import { GET_NEWS, ADD_NEWS, FAILED_SINGLE_NEWS, GET_SINGLE_NEWS, WAITING_SINGLE_NEWS, ADD_LIKE } from "../actions/types";
 
 const initialState = {
     news: [],
@@ -23,6 +23,7 @@ export default function (state = initialState, action) {
                 news: [payload, ...state.news]
             }
         case GET_SINGLE_NEWS:
+        case ADD_LIKE:
             return {
                 ...state,
                 actuallNews: payload,

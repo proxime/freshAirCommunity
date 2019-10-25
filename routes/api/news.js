@@ -72,4 +72,54 @@ router.get('/', async (req, res) => {
     }
 });
 
+// @route   POST api/news
+// @desc    Add new News
+// @access  Private
+router.post('/:id/like', [auth, [
+    check('emote', "wybierz reakcję").isNumeric(),
+]], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() })
+    }
+
+    const emote = req.body.emote;
+
+    try {
+        const news = await News.findById(req.params.id);
+        if (!news) return res.status(404).json({ msg: 'News not found' });
+        news.author = await User.findById(news.author).select('-password -likes');
+        if (emote < 0 || emote > 4) return res.status(404).json({ msg: "Wybierz poprawnę reakcję!" });
+
+        const isUsed = news.likes.filter((like, index) => {
+            if (String(like.user) === req.user.id) {
+                if (String(like.emote) !== String(emote)) {
+                    like.emote = emote;
+                } else {
+                    news.likes.splice(index, 1);
+                }
+                return like;
+            }
+        })
+
+        if (isUsed.length > 0) {
+            await news.save();
+            return res.json(news);
+        }
+
+        news.likes.push({
+            user: req.user.id,
+            emote
+        })
+
+        await news.save();
+
+        res.json(news);
+    } catch (err) {
+        if (err.kind === "ObjectId") return res.status(404).json({ msg: 'News not found' });
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+})
+
 module.exports = router;
