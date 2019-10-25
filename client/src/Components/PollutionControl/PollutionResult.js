@@ -28,7 +28,9 @@ const PollutionResult = ({ city, user, waitingForCity }) => {
                 </div>
             </div>
         ) : (
-                <Loading />
+                <div className="pollution-result">
+                    <Loading />
+                </div>
             )
     );
 }

@@ -119,8 +119,8 @@ const PollutionControl = ({ getStates, getCountries, initData, data, city, getCi
                         </div>
                     </form>
                     <div className="pollution-desc">
-                        <p>Sprawdź <span className="bold">poziom zanieczyszczenia</span></p>
-                        <p><span className="bold">w</span> swoim <span className="bold">mieście</span></p>
+                        <p>Sprawdź <span className="bold">indeks zanieczyszczenia</span></p>
+                        <p><span className="bold">powietrza</span> w swoim <span className="bold">mieście</span></p>
                     </div>
                 </div>
             </div>

@@ -428,7 +428,7 @@
 }
 
 .my-profile-image-container {
-  width: 300px;
+  width: 240px;
   height: 240px;
   margin-bottom: 20px;
 }
@@ -439,6 +439,7 @@
   background-position: center;
   background-size: cover;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
 }
 
 .my-profile-square h1 {
@@ -756,10 +757,6 @@
   }
   .my-profile-square {
     width: 320px;
-  }
-  .my-profile-image-container {
-    width: 250px;
-    height: 200px;
   }
   .my-profile-square h1 {
     font-size: 3rem;

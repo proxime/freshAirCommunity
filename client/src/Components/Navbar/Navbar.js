@@ -9,9 +9,9 @@ import { connect } from 'react-redux';
 const Navbar = ({ auth }) => {
     return (
         <nav className="navbar">
-            <div className="navbar-logo-container">
+            <Link to="/" className="navbar-logo-container">
                 <img src={logo} alt="Fresh Air Community" className="navbar-logo" />
-            </div>
+            </Link>
             <div className="navbar-login">
                 {auth.isAuthenticated ? (
                     <Link to="/auth/profile">Mój profil</Link>
@@ -23,8 +23,8 @@ const Navbar = ({ auth }) => {
             <div className="navbar-list-container">
                 <ul className="navbar-list">
                     <li><NavLink exact to="/" activeClassName="active">Strona Główna</NavLink></li>
-                    <li><NavLink exact to="/pollution" activeClassName="active">Indeks Zanieczyszczenia</NavLink></li>
                     <li><NavLink to="/news" activeClassName="active">Aktualności</NavLink></li>
+                    <li><NavLink exact to="/pollution" activeClassName="active">Indeks Zanieczyszczenia</NavLink></li>
                 </ul>
             </div>
         </nav>

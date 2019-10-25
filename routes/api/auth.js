@@ -208,7 +208,7 @@ router.post('/change/avatar', auth, async (req, res) => {
     const { avatar } = req.body;
 
     try {
-        if (isNaN(Number(avatar)) || Number(avatar) < 0 || Number(avatar) > 19) return res.status(400).json({ errors: [{ msg: 'Wybierz prawidłowy avatar', param: 'avatar' }] });
+        if (isNaN(Number(avatar)) || Number(avatar) < 0 || Number(avatar) > 14) return res.status(400).json({ errors: [{ msg: 'Wybierz prawidłowy avatar', param: 'avatar' }] });
 
         const user = await User.findById(req.user.id);
 

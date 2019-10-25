@@ -8,6 +8,7 @@ import Auth from './Components/Authenticate/Auth';
 import Profile from './Components/Profile/Profile';
 import News from './Components/News/News';
 import SingleNews from './Components/News/SingleNews';
+import Footer from './Components/Footer';
 // redux setup
 import { Provider } from 'react-redux';
 import { getUser } from './actions/auth';
@@ -32,6 +33,7 @@ function App() {
             <Route path="/news/:id" component={SingleNews} exact />
           </Switch>
         </div>
+        <Footer />
       </Router>
     </Provider>
   );

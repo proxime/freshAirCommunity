@@ -26,7 +26,7 @@ const Dashboard = () => {
                 <h1>
                     <div className="section-before"></div>
                     <div>
-                        <span className="bold">Czym jest</span> zanieczyszczenie powietrza?
+                        <span className="bold">Czym jest smog?</span>
                     </div>
                 </h1>
                 <p><span className="bold">Smog jest nienaturalnym zjawiskiem atmosferycznym,</span> które polega na współistnieniu związków chemicznych oraz pyłów w naszej atmosferze. Przebywanie, oddychanie nim <span className="bold">zagraża naszemu zdrowiu i życiu.</span></p>
@@ -37,7 +37,7 @@ const Dashboard = () => {
                 <h1>
                     <div className="section-before"></div>
                     <div>
-                        Miasta o najwyższym <span className="bold">Indeksie zanieczyszczenia powietrza</span>
+                        Miasta o najwyższym <span className="bold">indeksie zanieczyszczenia powietrza</span>
                     </div>
                 </h1>
                 <div className="dashboard-cities">

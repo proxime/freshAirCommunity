@@ -56,3 +56,34 @@ html {
 .loading img {
   width: 100%;
 }
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #222;
+  color: white;
+  position: relative;
+  z-index: 100;
+}
+
+.footer-text {
+  font-size: 1.5rem;
+  margin-right: 30px;
+}
+
+.footer-logo {
+  width: 150px;
+}
+
+.footer-logo-image {
+  width: 100%;
+}
+
+@media (max-width: 500px) {
+  .footer-text {
+    font-size: 1.2rem;
+    margin-right: 10px;
+  }
+}

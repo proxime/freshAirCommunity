@@ -1,7 +1,7 @@
 .dashboard-logo {
   height: 30vw;
   min-height: 400px;
-  background-image: url("../../images//dashboard-bg.png");
+  background-image: url("../../images/main.png");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -164,7 +164,6 @@
   position: relative;
   width: 100%;
   padding-top: 100%;
-  background-color: red;
   border-radius: 50%;
   background-position: center;
   background-size: cover;
@@ -174,6 +173,7 @@
 .dashboard-cities-item h2 {
   font-size: 2rem;
   margin-bottom: -5px;
+  margin-top: 7px;
 }
 
 .dashboard-cities-item p {

@@ -1,11 +1,12 @@
 .pollution-container {
   position: relative;
   padding: 80px 50px;
-  background-image: url("../../images/powerStation.jpg");
+  background-image: url("../../images/index.png");
   background-position: center 70%;
   background-size: cover;
 }
 
+/* 
 .pollution-container::before {
   content: "";
   position: absolute;
@@ -15,7 +16,7 @@
   top: 0;
   background-color: black;
   opacity: 0.35;
-}
+} */
 
 .polution-cover {
   position: relative;
@@ -88,6 +89,7 @@
 
 .pollution-result {
   padding: 30px 50px 10px 50px;
+  min-height: 360px;
 }
 
 .pollution-result-name-container {

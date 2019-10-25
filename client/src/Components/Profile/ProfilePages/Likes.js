@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -6,6 +6,12 @@ import { likeAndUnlike } from '../../../actions/auth';
 import { getCity } from '../../../actions/data';
 
 const Likes = ({ likes, likeAndUnlike, getCity, history }) => {
+    useEffect(() => {
+        return () => {
+            window.scrollTo(0, 0);
+        }
+    }, [])
+
     const [likeHovered, setLikeHoveres] = useState({
         item: null
     });
