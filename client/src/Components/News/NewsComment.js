@@ -34,15 +34,18 @@ const NewsComment = ({ newsId, actuallNews, addComment, avatars, auth, deleteCom
 
     return (
         <div className="comments-section">
-            <div className="comment-form">
-                <form onSubmit={e => handleAddComment(e)}>
-                    <label>
-                        <p>Dodaj Komentarz</p>
-                        <textarea onChange={(e) => setComment(e.target.value)} name="comment" value={comment}></textarea>
-                    </label>
-                    <button>Dodaj Komentarz</button>
-                </form>
-            </div>
+            <div className="comments-title">Komentarze</div>
+            {auth.isAuthenticated && (
+                <div className="comment-form">
+                    <form onSubmit={e => handleAddComment(e)}>
+                        <label>
+                            <p>Dodaj Komentarz</p>
+                            <textarea onChange={(e) => setComment(e.target.value)} name="comment" value={comment}></textarea>
+                        </label>
+                        <button>Dodaj Komentarz</button>
+                    </form>
+                </div>
+            )}
             <div className="comments">
                 {comments}
             </div>

@@ -424,6 +424,12 @@
   margin-top: 15px;
 }
 
+.comments-title {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
 @media (max-width: 1240px) {
   .last-news {
     display: none;
