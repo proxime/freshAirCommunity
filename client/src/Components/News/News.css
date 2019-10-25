@@ -217,8 +217,12 @@
 .single-news {
   width: 800px;
   flex-shrink: 0;
-  padding: 30px 40px;
+}
+
+.single-news-wrapper {
   background-color: #f5f5f5;
+  padding: 30px 40px;
+  margin-bottom: 20px;
 }
 
 .last-news {
@@ -289,8 +293,10 @@
 
 .single-news-reactions {
   display: flex;
-  padding-top: 20px;
+  padding: 30px 0;
   justify-content: center;
+  position: relative;
+  background-color: #f5f5f5;
 }
 
 .single-news-reaction {
@@ -306,6 +312,15 @@
 .single-news-reaction p {
   font-size: 1.8rem;
   text-align: center;
+}
+
+.emote-warrning {
+  position: absolute;
+  top: 75%;
+  color: red;
+  width: 100%;
+  text-align: center;
+  font-size: 1.8rem;
 }
 
 @media (max-width: 1240px) {

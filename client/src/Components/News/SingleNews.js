@@ -5,6 +5,7 @@ import Loading from '../Loading';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSilngleNews, getAllNews, addLike } from '../../actions/news';
+import { setAlert, clearAlerts } from '../../actions/alert';
 
 import e0 from '../../images/emotes/0.png';
 import e1 from '../../images/emotes/1.png';
@@ -12,7 +13,7 @@ import e2 from '../../images/emotes/2.png';
 import e3 from '../../images/emotes/3.png';
 import e4 from '../../images/emotes/4.png';
 
-const SingleNews = ({ match, news, getSilngleNews, getAllNews, addLike }) => {
+const SingleNews = ({ match, news, getSilngleNews, getAllNews, addLike, auth, setAlert, clearAlerts, alert }) => {
     const containerEl = useRef(null);
     const [newsId, setNewsId] = useState(match.params.id);
 
@@ -21,6 +22,7 @@ const SingleNews = ({ match, news, getSilngleNews, getAllNews, addLike }) => {
         getAllNews();
 
         return () => {
+            clearAlerts();
             window.scrollTo(0, 0);
         }
     }, [])
@@ -33,6 +35,7 @@ const SingleNews = ({ match, news, getSilngleNews, getAllNews, addLike }) => {
         if (match.params.id !== newsId) {
             setNewsId(match.params.id);
             getSilngleNews(match.params.id)
+            clearAlerts();
             window.scrollTo(0, 0);
         }
     })
@@ -67,6 +70,19 @@ const SingleNews = ({ match, news, getSilngleNews, getAllNews, addLike }) => {
         })
     }
 
+    const handleAddLike = (newsId, index) => {
+        if (!auth.loading) {
+            clearAlerts();
+            if (auth.isAuthenticated) {
+                addLike(newsId, index);
+            } else {
+                setAlert({ msg: 'Zaloguj się aby ocenić', param: 'emotes' })
+            }
+        }
+    }
+
+    const emotesAlert = alert.filter(item => item.param === 'emotes');
+
     return (
         <div className="container">
             <div className="single-news-container">
@@ -76,33 +92,36 @@ const SingleNews = ({ match, news, getSilngleNews, getAllNews, addLike }) => {
                     ) : (
                             news.actuallNews ? (
                                 <>
-                                    <h1 className="single-news-title">{news.actuallNews.title}</h1>
-                                    <p className="single-news-date"><Moment format="DD.MM.YYYY HH:mm">{news.actuallNews.date}</Moment></p>
-                                    <div className="single-news-image" style={{ backgroundImage: `url(${news.actuallNews.image})` }}></div>
-                                    <div className="single-news-content" ref={containerEl}>
+                                    <div className="single-news-wrapper">
+                                        <h1 className="single-news-title">{news.actuallNews.title}</h1>
+                                        <p className="single-news-date"><Moment format="DD.MM.YYYY HH:mm">{news.actuallNews.date}</Moment></p>
+                                        <div className="single-news-image" style={{ backgroundImage: `url(${news.actuallNews.image})` }}></div>
+                                        <div className="single-news-content" ref={containerEl}>
 
+                                        </div>
                                     </div>
                                     <div className="single-news-reactions">
-                                        <div onClick={() => addLike(newsId, 0)} className="single-news-reaction">
+                                        <div onClick={() => handleAddLike(newsId, 0)} className="single-news-reaction">
                                             <img src={e0} alt="" />
                                             <p>{likes[0]}</p>
                                         </div>
-                                        <div onClick={() => addLike(newsId, 1)} className="single-news-reaction">
+                                        <div onClick={() => handleAddLike(newsId, 1)} className="single-news-reaction">
                                             <img src={e1} alt="" />
                                             <p>{likes[1]}</p>
                                         </div>
-                                        <div onClick={() => addLike(newsId, 2)} className="single-news-reaction">
+                                        <div onClick={() => handleAddLike(newsId, 2)} className="single-news-reaction">
                                             <img src={e2} alt="" />
                                             <p>{likes[2]}</p>
                                         </div>
-                                        <div onClick={() => addLike(newsId, 3)} className="single-news-reaction">
+                                        <div onClick={() => handleAddLike(newsId, 3)} className="single-news-reaction">
                                             <img src={e3} alt="" />
                                             <p>{likes[3]}</p>
                                         </div>
-                                        <div onClick={() => addLike(newsId, 4)} className="single-news-reaction">
+                                        <div onClick={() => handleAddLike(newsId, 4)} className="single-news-reaction">
                                             <img src={e4} alt="" />
                                             <p>{likes[4]}</p>
                                         </div>
+                                        {emotesAlert.length > 0 && <p className="emote-warrning">{emotesAlert[0].msg}</p>}
                                     </div>
                                 </>
                             ) : (
@@ -126,10 +145,14 @@ SingleNews.ptpTypes = {
     getSilngleNews: PropTypes.func.isRequired,
     getAllNews: PropTypes.func.isRequired,
     addLike: PropTypes.func.isRequired,
+    setAlert: PropTypes.func.isRequired,
+    clearAlerts: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
     news: state.news,
+    auth: state.auth,
+    alert: state.alert
 })
 
-export default connect(mapStateToProps, { getSilngleNews, getAllNews, addLike })(SingleNews);
+export default connect(mapStateToProps, { getSilngleNews, getAllNews, addLike, setAlert, clearAlerts })(SingleNews);
