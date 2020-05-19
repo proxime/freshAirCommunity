@@ -1,23 +1,25 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
-import Navbar from './Components/Navbar/Navbar';
-import Dashboard from './Components/Dashboard/Dashboard';
-import PollutionControl from './Components/PollutionControl/PollutionControl';
-import Auth from './Components/Authenticate/Auth';
-import Profile from './Components/Profile/Profile';
-import News from './Components/News/News';
-import SingleNews from './Components/News/SingleNews';
-import Footer from './Components/Footer';
+import React, { useEffect } from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import './App.css'
+import Navbar from './Components/Navbar/Navbar'
+import Dashboard from './Components/Dashboard/Dashboard'
+import PollutionControl from './Components/PollutionControl/PollutionControl'
+import Auth from './Components/Authenticate/Auth'
+import Profile from './Components/Profile/Profile'
+import News from './Components/News/News'
+import SingleNews from './Components/News/SingleNews'
+import Footer from './Components/Footer'
 // redux setup
-import { Provider } from 'react-redux';
-import { getUser } from './actions/auth';
-import store from './store';
+import { Provider } from 'react-redux'
+import { getUser } from './actions/auth'
+import store from './store'
+
+import './utils/fontawesome/css/all.min.css'
 
 function App() {
   useEffect(() => {
     store.dispatch(getUser())
-  }, []);
+  }, [])
 
   return (
     <Provider store={store}>
@@ -36,7 +38,7 @@ function App() {
         <Footer />
       </Router>
     </Provider>
-  );
+  )
 }
 
-export default App;
+export default App

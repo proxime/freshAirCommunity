@@ -5,7 +5,7 @@
 
 .auth-background {
   width: 50%;
-  background-image: url("../../images/auth/2.png");
+  background-image: url('../../images/auth.png');
   background-position: center 65%;
   background-size: cover;
 }
